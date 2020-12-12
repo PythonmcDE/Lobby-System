@@ -1,6 +1,8 @@
 package me.bluenitrox.lobby;
 
 import me.bluenitrox.lobby.commands.*;
+import me.bluenitrox.lobby.listener.PlayerJoinListener;
+import me.bluenitrox.lobby.listener.PlayerQuitListener;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -11,6 +13,7 @@ public class LobbySystem extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        instance = this;
         register(Bukkit.getPluginManager());
     }
 
@@ -26,6 +29,9 @@ public class LobbySystem extends JavaPlugin {
         getCommand("fly").setExecutor(new Fly());
         getCommand("set").setExecutor(new SetLocations());
         getCommand("build").setExecutor(new Build());
+
+        pm.registerEvents(new PlayerJoinListener(), this);
+        pm.registerEvents(new PlayerQuitListener(), this);
     }
 
     public LobbySystem getInstance() {
