@@ -1,5 +1,7 @@
 package me.bluenitrox.lobby;
 
+import de.Herbystar.TTA.TTA_Methods;
+import me.bluenitrox.lobby.manager.LocationManager;
 import me.bluenitrox.lobby.mysql.MySQL;
 import me.bluenitrox.lobby.mysql.MySQL_File;
 import me.bluenitrox.lobby.utils.Multiplikator;
@@ -8,9 +10,11 @@ import me.bluenitrox.lobby.listener.*;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.Arrays;
 
 public class LobbySystem extends JavaPlugin {
 
@@ -60,6 +64,7 @@ public class LobbySystem extends JavaPlugin {
         mp.initialize();
     }
 
+
     public void startMySQL(){
         MySQL_File file = new MySQL_File();
         file.setdefault();
@@ -95,7 +100,7 @@ public class LobbySystem extends JavaPlugin {
         }
 
         try {
-            PreparedStatement ps = MySQL.getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS `emotes` ( `UUID` VARCHAR(36) NOT NULL , `rightright` INT(11) NOT NULL , `leftleft` INT(11) NOT NULL, `right` INT(11) NOT NULL, `richtig` INT(11) NOT NULL, `x` INT(11) NOT NULL, `herz` INT(11) NOT NULL, `angry` INT(11) NOT NULL, `eye` INT(11) NOT NULL, `sad` INT(11) NOT NULL, `headphone` INT(11) NOT NULL, `idk` INT(11) NOT NULL,PRIMARY KEY (`UUID`))");
+            PreparedStatement ps = MySQL.getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS `emotes` ( `UUID` VARCHAR(36) NOT NULL , `rightright` INT(11) NOT NULL , `leftleft` INT(11) NOT NULL, `rechts` INT(11) NOT NULL, `richtig` INT(11) NOT NULL, `x` INT(11) NOT NULL, `herz` INT(11) NOT NULL, `angry` INT(11) NOT NULL, `eye` INT(11) NOT NULL, `sad` INT(11) NOT NULL, `headphone` INT(11) NOT NULL, `idk` INT(11) NOT NULL,PRIMARY KEY (`UUID`))");
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

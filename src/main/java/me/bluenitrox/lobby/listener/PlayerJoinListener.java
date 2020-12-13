@@ -7,6 +7,7 @@ import me.bluenitrox.lobby.utils.ItemBuilder;
 import me.bluenitrox.lobby.utils.KopfUtil;
 import me.bluenitrox.lobby.manager.ScoreboardManager;
 import org.bukkit.GameMode;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

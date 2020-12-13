@@ -13,6 +13,7 @@ public class Feed implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender cs, Command cmd, String s, String[] args) {
         Player p = (Player)cs;
+
         if(p.hasPermission(PermissionsManager.FEED) || p.hasPermission(PermissionsManager.FEED_OTHER) || p.hasPermission(PermissionsManager.ALLPERMS)) {
             if (args.length == 1) {
                 if(p.hasPermission(PermissionsManager.FEED_OTHER) || p.hasPermission(PermissionsManager.ALLPERMS)){

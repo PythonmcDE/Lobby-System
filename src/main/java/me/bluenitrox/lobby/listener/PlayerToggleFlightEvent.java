@@ -1,5 +1,6 @@
 package me.bluenitrox.lobby.listener;
 
+import me.bluenitrox.lobby.cases.CaseManager;
 import me.bluenitrox.lobby.utils.Multiplikator;
 import me.bluenitrox.lobby.LobbySystem;
 import org.bukkit.GameMode;
@@ -17,7 +18,7 @@ public class PlayerToggleFlightEvent implements Listener {
     @EventHandler
     public void onPlayerToggleFlightEvent(org.bukkit.event.player.PlayerToggleFlightEvent ev) {
         Player p = ev.getPlayer();
-        if (p.hasPermission("System.ds.use") && p.getGameMode() == GameMode.SURVIVAL) {
+        if (CaseManager.getItems(p.getUniqueId(), "doublejump", "bekleidung") > 0 && p.getGameMode() == GameMode.SURVIVAL) {
             ev.setCancelled(true);
             p.setFlying(false);
             p.setAllowFlight(false);
@@ -30,7 +31,7 @@ public class PlayerToggleFlightEvent implements Listener {
     @EventHandler
     public void onPlayerMoveEvent(PlayerMoveEvent ev) {
         Player p = ev.getPlayer();
-        if (p.hasPermission("System.ds.use") && p.getGameMode() == GameMode.SURVIVAL && p.getLocation().add(0.0D, -1.0D, 0.0D).getBlock().getType() != Material.AIR) {
+        if (CaseManager.getItems(p.getUniqueId(), "doublejump", "bekleidung") > 0 && p.getGameMode() == GameMode.SURVIVAL && p.getLocation().add(0.0D, -1.0D, 0.0D).getBlock().getType() != Material.AIR) {
             p.setFlying(false);
             p.setAllowFlight(true);
         }
