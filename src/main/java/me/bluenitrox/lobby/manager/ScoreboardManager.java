@@ -1,6 +1,7 @@
 package me.bluenitrox.lobby.manager;
 
-//import me.bluenitrox.all.Database;
+
+import me.bluenitrox.all.Database;
 import net.minecraft.server.v1_8_R3.*;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;
@@ -17,7 +18,7 @@ public class ScoreboardManager {
 
         ScoreboardScore a1 = new ScoreboardScore(scoreboard, obj, " ");
         ScoreboardScore a2 = new ScoreboardScore(scoreboard, obj, "§8● §7Coins");
-        ScoreboardScore a11 = new ScoreboardScore(scoreboard, obj, "§8➝  §61000");//Database.getCoins(p.getUniqueId())
+        ScoreboardScore a11 = new ScoreboardScore(scoreboard, obj, "§8➝  §6" + Database.getCoins(p.getUniqueId()));
         ScoreboardScore a4 = new ScoreboardScore(scoreboard, obj, "  ");
         ScoreboardScore a5 = new ScoreboardScore(scoreboard, obj, "§8● §7Teamspeak");
         ScoreboardScore a12 = new ScoreboardScore(scoreboard, obj, "§8➝  §6DemonMC.eu");

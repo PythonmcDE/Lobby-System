@@ -1,10 +1,10 @@
 package me.bluenitrox.lobby;
 
-import me.bluenitrox.lobby.commands.*;
-import me.bluenitrox.lobby.listener.*;
 import me.bluenitrox.lobby.mysql.MySQL;
 import me.bluenitrox.lobby.mysql.MySQL_File;
 import me.bluenitrox.lobby.utils.Multiplikator;
+import me.bluenitrox.lobby.commands.*;
+import me.bluenitrox.lobby.listener.*;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -13,6 +13,14 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class LobbySystem extends JavaPlugin {
+
+    /*
+
+    private final IPlayerManager playerManager = CloudNetDriver.getInstance().getServicesRegistry().getFirstService(IPlayerManager.class);
+
+    this.playerManager.getPlayerExecutor(entry).connect("Lobby-3");
+
+     */
 
     public static LobbySystem instance;
 
@@ -59,11 +67,40 @@ public class LobbySystem extends JavaPlugin {
         MySQL.connect();
 
         try {
+            PreparedStatement ps = MySQL.getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS `spielerdaten` ( `UUID` VARCHAR(36) NOT NULL , `cases` INT(11) NOT NULL , PRIMARY KEY (`UUID`))");
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        try {
             PreparedStatement ps = MySQL.getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS `locations` ( `name` VARCHAR(30) NOT NULL , `world` VARCHAR(30) NOT NULL , `x` DOUBLE NOT NULL , `y` DOUBLE NOT NULL , `z` DOUBLE NOT NULL , `yaw` FLOAT NOT NULL , `pitch` FLOAT NOT NULL , PRIMARY KEY (`name`))");
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        try {
+            PreparedStatement ps = MySQL.getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS `bekleidung` ( `UUID` VARCHAR(36) NOT NULL , `daemonen` INT(11) NOT NULL , `drip` INT(11) NOT NULL, `flame` INT(11) NOT NULL, `zauberer` INT(11) NOT NULL, `schnee` INT(11) NOT NULL, `sprungkraft` INT(11) NOT NULL, `speed` INT(11) NOT NULL, `doublejump` INT(11) NOT NULL, PRIMARY KEY (`UUID`))");
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            PreparedStatement ps = MySQL.getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS `gadgets` ( `UUID` VARCHAR(36) NOT NULL , `tnt` INT(11) NOT NULL , `enterhaken` INT(11) NOT NULL, `iron` INT(11) NOT NULL, `gold` INT(11) NOT NULL, `bannerblue` INT(11) NOT NULL, `bannerred` INT(11) NOT NULL, `bannergreen` INT(11) NOT NULL, `banneryellow` INT(11) NOT NULL, `bannergrey` INT(11) NOT NULL, `bannerblack` INT(11) NOT NULL, `bannerpink` INT(11) NOT NULL, `bannerorange` INT(11) NOT NULL, PRIMARY KEY (`UUID`))");
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            PreparedStatement ps = MySQL.getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS `emotes` ( `UUID` VARCHAR(36) NOT NULL , `rightright` INT(11) NOT NULL , `leftleft` INT(11) NOT NULL, `right` INT(11) NOT NULL, `richtig` INT(11) NOT NULL, `x` INT(11) NOT NULL, `herz` INT(11) NOT NULL, `angry` INT(11) NOT NULL, `eye` INT(11) NOT NULL, `sad` INT(11) NOT NULL, `headphone` INT(11) NOT NULL, `idk` INT(11) NOT NULL,PRIMARY KEY (`UUID`))");
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
 
     }
 

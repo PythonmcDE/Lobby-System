@@ -1,5 +1,7 @@
 package me.bluenitrox.lobby.listener;
 
+import me.bluenitrox.lobby.cases.CaseAPI;
+import me.bluenitrox.lobby.cases.CaseManager;
 import me.bluenitrox.lobby.commands.Build;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -20,6 +22,8 @@ public class InventoryClickEvent implements Listener {
             inventoryClick(e,p);
         }else if(e.getClickedInventory().getName().equalsIgnoreCase("§8» §6Cosmetics")){
 
+        }else if(e.getClickedInventory().getName().equalsIgnoreCase("§8» §6§lCase-Opening")){
+            inventoryClickCase(p);
         }
     }
 
@@ -44,6 +48,12 @@ public class InventoryClickEvent implements Listener {
             p.playSound(p.getLocation(), Sound.LEVEL_UP, 1L, 1L);
             p.closeInventory();
         }
+    }
+
+    private void inventoryClickCase(Player p){
+        CaseAPI api = new CaseAPI();
+        CaseManager.update(p.getUniqueId(), 1, true, "cases");
+        api.openCase(p, 0);
     }
 
 }

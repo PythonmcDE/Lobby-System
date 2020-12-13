@@ -1,7 +1,7 @@
 package me.bluenitrox.lobby.listener;
 
-import me.bluenitrox.lobby.LobbySystem;
 import me.bluenitrox.lobby.utils.Multiplikator;
+import me.bluenitrox.lobby.LobbySystem;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.Sound;

@@ -1,10 +1,11 @@
 package me.bluenitrox.lobby.listener;
 
 import de.Herbystar.TTA.TTA_Methods;
+import me.bluenitrox.lobby.cases.CaseManager;
 import me.bluenitrox.lobby.manager.LocationManager;
-import me.bluenitrox.lobby.manager.ScoreboardManager;
 import me.bluenitrox.lobby.utils.ItemBuilder;
 import me.bluenitrox.lobby.utils.KopfUtil;
+import me.bluenitrox.lobby.manager.ScoreboardManager;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -22,6 +23,7 @@ public class PlayerJoinListener implements Listener {
     public void onJoin(final PlayerJoinEvent e){
         Player p = (Player)e.getPlayer();
         e.setJoinMessage(null);
+        CaseManager.cachPlayerData(p.getUniqueId());
         p.teleport(new LocationManager("spawn").getLocation());
         ScoreboardManager.setBoard(p);
         TTA_Methods.sendActionBar(p, "§8» §bDu kannst gut Supporten? §4§l-> §cBewirb dich jetzt als Supporter!", 20*60*24);
