@@ -20,13 +20,6 @@ import java.util.Arrays;
 
 public class LobbySystem extends JavaPlugin {
 
-    /*
-
-    private final IPlayerManager playerManager = CloudNetDriver.getInstance().getServicesRegistry().getFirstService(IPlayerManager.class);
-
-    this.playerManager.getPlayerExecutor(entry).connect("Lobby-3");
-
-     */
 
 
     public static ArrayList<Player> p = new ArrayList<>();

@@ -4,6 +4,7 @@ import me.bluenitrox.lobby.LobbySystem;
 import me.bluenitrox.lobby.cases.CaseManager;
 import me.bluenitrox.lobby.manager.CosmeticManager;
 import me.bluenitrox.lobby.manager.MessageManager;
+import me.bluenitrox.lobby.manager.PermissionsManager;
 import me.bluenitrox.lobby.utils.ItemBuilder;
 import me.bluenitrox.lobby.utils.KopfUtil;
 import org.bukkit.Bukkit;
@@ -133,14 +134,24 @@ public class PlayerInteractEvent implements Listener {
 
         ItemStack glas = new ItemBuilder(Material.STAINED_GLASS_PANE, (short)15).setDisplayname(" ").build();
 
-        ItemStack lobby1 = new ItemBuilder(Material.LEATHER_CHESTPLATE).build();
-        ItemStack lobby2 = new ItemBuilder(Material.LEATHER_CHESTPLATE).build();
+        ItemStack lobby1 = new ItemBuilder(Material.LEATHER_CHESTPLATE).setDisplayname("§8»§6 Lobby-1").setLore("§aKlicke hier um in diese Lobby zu wechseln.").build();
+        ItemStack lobby2 = new ItemBuilder(Material.LEATHER_CHESTPLATE).setDisplayname("§8»§6 Lobby-2").setLore("§aKlicke hier um in diese Lobby zu wechseln.").build();
+        ItemStack premiumlobby1 = new ItemBuilder(Material.GOLD_CHESTPLATE).setDisplayname("§8»§6 PremiumLobby-1").setLore("§aKlicke hier um in diese Lobby zu wechseln.").build();
+        ItemStack premiumlobbynothere = new ItemBuilder(Material.BARRIER).setDisplayname("§8»§6 PremiumLobby-1").setLore("§aDu hast keinen Zugang um in die PremiumLobby zu gehen!").build();
 
         for(int i = 0; i<= 9; i++){
             inv.setItem(i, glas);
         }
         for(int i = 17; i<= 26; i++){
             inv.setItem(i,glas);
+        }
+
+        inv.setItem(12,lobby1);
+        inv.setItem(13,lobby2);
+        if(!p.hasPermission(PermissionsManager.PREMIUMLOBBY)) {
+            inv.setItem(14, premiumlobbynothere);
+        }else {
+            inv.setItem(14,premiumlobby1);
         }
 
         p.openInventory(inv);

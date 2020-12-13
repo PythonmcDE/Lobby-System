@@ -1,7 +1,11 @@
 package me.bluenitrox.lobby.listener;
 
+import de.dytanic.cloudnet.driver.CloudNetDriver;
+import de.dytanic.cloudnet.ext.bridge.player.ICloudPlayer;
+import de.dytanic.cloudnet.ext.bridge.player.IPlayerManager;
 import me.bluenitrox.lobby.cases.CaseAPI;
 import me.bluenitrox.lobby.cases.CaseManager;
+import me.bluenitrox.lobby.cases.CoinShop;
 import me.bluenitrox.lobby.commands.Build;
 import me.bluenitrox.lobby.manager.CosmeticManager;
 import org.bukkit.Bukkit;
@@ -11,7 +15,11 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
+import java.util.List;
+
 public class InventoryClickEvent implements Listener {
+
+    private final IPlayerManager playerManager = CloudNetDriver.getInstance().getServicesRegistry().getFirstService(IPlayerManager.class);
 
     @EventHandler
     public void onClick(final org.bukkit.event.inventory.InventoryClickEvent e){
@@ -21,12 +29,17 @@ public class InventoryClickEvent implements Listener {
         }
         if(e.getClickedInventory().getName().equalsIgnoreCase("§8» §6Spieler-Sichtbarkeit")){
             inventoryClick(e,p);
-        }else if(e.getClickedInventory().getName().equalsIgnoreCase("§8» §6Cosmetics")){
-
         }else if(e.getClickedInventory().getName().equalsIgnoreCase("§8» §6§lCase-Opening")){
             inventoryClickCase(p);
+        }else if(e.getClickedInventory().getName().equalsIgnoreCase("§8» §6Lobby wechseln") && e.getCurrentItem() != null){
+            Bukkit.broadcastMessage(this.playerManager.getOnlinePlayers(p.getName()) +"");
+            List<? extends ICloudPlayer> cloudPlayers = this.playerManager.getOnlinePlayers(p.getName());
+            ICloudPlayer entry = cloudPlayers.get(0);
+            String[] Lobby = e.getCurrentItem().getItemMeta().getDisplayName().split(" ");
+            this.playerManager.getPlayerExecutor(entry).connect(Lobby[1]);
         }
         CosmeticManager.onClick(e);
+        CoinShop.onClick(e);
     }
 
     private void inventoryClick(final org.bukkit.event.inventory.InventoryClickEvent e, Player p){

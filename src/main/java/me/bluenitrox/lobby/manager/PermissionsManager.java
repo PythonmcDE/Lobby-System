@@ -13,5 +13,6 @@ public class PermissionsManager {
     public static final String FLY_OTHER = "System.Fly.other";
     public static final String SETLOCATION = "System.location.set";
     public static final String BUILD = "System.Build";
+    public static final String PREMIUMLOBBY = "System.Premiumlobby";
 
 }
