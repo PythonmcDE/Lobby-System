@@ -2,6 +2,7 @@ package me.bluenitrox.lobby.listener;
 
 import de.Herbystar.TTA.TTA_Methods;
 import me.bluenitrox.lobby.cases.CaseManager;
+import me.bluenitrox.lobby.manager.CosmeticManager;
 import me.bluenitrox.lobby.manager.LocationManager;
 import me.bluenitrox.lobby.utils.ItemBuilder;
 import me.bluenitrox.lobby.utils.KopfUtil;
@@ -15,6 +16,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 import java.util.Arrays;
 
@@ -33,6 +36,16 @@ public class PlayerJoinListener implements Listener {
         givePlayerItems(p);
         if(CaseManager.getItems(p.getUniqueId(), "doublejump", "bekleidung") > 0){
             PlayerToggleFlightEvent.doublejump.add(p);
+        }
+        fähigkeiten(p);
+    }
+
+    private void fähigkeiten(Player p){
+        if(CaseManager.getItems(p.getUniqueId(), "sprungkraft", "bekleidung") >0){
+            p.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, 1, 20*60*24));
+        }
+        if(CaseManager.getItems(p.getUniqueId(), "speed", "bekleidung") >0){
+            p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 0, 20*60*24));
         }
     }
 
