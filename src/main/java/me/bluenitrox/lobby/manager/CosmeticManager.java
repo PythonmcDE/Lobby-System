@@ -61,6 +61,44 @@ public class CosmeticManager {
         }
     }
 
+    public static void onClickInv(final InventoryClickEvent e){
+        Player p = (Player) e.getWhoClicked();
+        if(e.getClickedInventory().getName().equalsIgnoreCase("§8» §6Emotes") && e.getCurrentItem() != null){
+            return;
+        }else if(e.getClickedInventory().getName().equalsIgnoreCase("§8» §6Banner") && e.getCurrentItem() != null){
+            if(e.getCurrentItem().getType() == Material.BANNER){
+                p.getInventory().setHelmet(e.getCurrentItem());
+                p.closeInventory();
+                p.playSound(p.getLocation(), Sound.CHICKEN_EGG_POP, 1L ,1L);
+            }
+        }else if(e.getClickedInventory().getName().equalsIgnoreCase("§8» §6Bekleidung") && e.getCurrentItem() != null){
+            if(e.getCurrentItem().getType() == Material.CHAINMAIL_BOOTS ||e.getCurrentItem().getType() == Material.IRON_BOOTS ||e.getCurrentItem().getType() == Material.GOLD_BOOTS ||e.getCurrentItem().getType() == Material.DIAMOND_BOOTS){
+                p.getInventory().setHelmet(e.getCurrentItem());
+                p.closeInventory();
+                p.playSound(p.getLocation(), Sound.CHICKEN_EGG_POP, 1L ,1L);
+            }else if(e.getCurrentItem().getType() == Material.LEATHER_CHESTPLATE){
+                p.getInventory().setChestplate(e.getCurrentItem());
+                p.getInventory().setHelmet(new ItemBuilder(Material.LEATHER_HELMET).setDisplayname("§c§lVolle Dämonen Helm").build());
+                p.getInventory().setLeggings(new ItemBuilder(Material.LEATHER_LEGGINGS).setDisplayname("§c§lVolle Dämonen Hose").build());
+                p.getInventory().setBoots(new ItemBuilder(Material.LEATHER_BOOTS).setDisplayname("§c§lVolle Dämonen Schuhe").build());
+            }
+        }else if(e.getClickedInventory().getName().equalsIgnoreCase("§8» §6Fähigkeiten") && e.getCurrentItem() != null){
+            return;
+        }else if(e.getClickedInventory().getName().equalsIgnoreCase("§8» §6Gadgets") && e.getCurrentItem() != null){
+            if(e.getCurrentItem().getType() == Material.FISHING_ROD || e.getCurrentItem().getType() == Material.TNT || e.getCurrentItem().getType() == Material.IRON_BARDING || e.getCurrentItem().getType() == Material.GOLD_BARDING){
+                p.setItemInHand(e.getCurrentItem());
+                p.closeInventory();
+                p.playSound(p.getLocation(), Sound.CHICKEN_EGG_POP, 1L ,1L);
+            }
+        }else if(e.getClickedInventory().getName().equalsIgnoreCase("§8» §6Köpfe") && e.getCurrentItem() != null){
+            if(e.getCurrentItem().getType() == Material.SKULL_ITEM){
+                p.getInventory().setHelmet(e.getCurrentItem());
+                p.closeInventory();
+                p.playSound(p.getLocation(), Sound.CHICKEN_EGG_POP, 1L ,1L);
+            }
+        }
+    }
+
     public static Inventory getMainmenu(UUID uuid){
         Inventory inv = Bukkit.createInventory(null, 6*9,"§8» §6§lCosmetics");
 

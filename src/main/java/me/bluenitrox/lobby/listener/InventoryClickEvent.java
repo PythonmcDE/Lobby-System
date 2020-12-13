@@ -37,6 +37,7 @@ public class InventoryClickEvent implements Listener {
             String[] Lobby = e.getCurrentItem().getItemMeta().getDisplayName().split(" ");
             this.playerManager.getPlayerExecutor(entry).connect(Lobby[1]);
         }
+        CosmeticManager.onClickInv(e);
         CosmeticManager.onClick(e);
         CoinShop.onClick(e);
     }

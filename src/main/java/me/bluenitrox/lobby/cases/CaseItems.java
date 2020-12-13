@@ -51,8 +51,7 @@ public class CaseItems {
         ItemStack emote8 = new ItemBuilder(Material.EMPTY_MAP).setDisplayname("§8» §7Emote:").setLore("§8● §7Schreibe: §8\":eye:§8\"").build();
         ItemStack emote9 = new ItemBuilder(Material.EMPTY_MAP).setDisplayname("§8» §7Emote:").setLore("§8● §7Schreibe: §8\":sad:§8\"").build();
         ItemStack emote10 = new ItemBuilder(Material.EMPTY_MAP).setDisplayname("§8» §7Emote:").setLore("§8● §7Schreibe: §8\":headphone:§8\"").build();
-        ItemStack emote11 = new ItemBuilder(Material.EMPTY_MAP).setDisplayname("§8» §7Emote:").setLore("§8● §7Schreibe: §8\":idk§8\"").build();
-        ItemStack emote12 = new ItemBuilder(Material.EMPTY_MAP).setDisplayname("§8» §7Emote:").setLore("§8● §7Schreibe: §8\"§8\"").build();
+        ItemStack emote11 = new ItemBuilder(Material.EMPTY_MAP).setDisplayname("§8» §7Emote:").setLore("§8● §7Schreibe: §8\":idk;§8\"").build();
 
         ItemStack kopf1 = KopfUtil.createSkull("GommeHD","§cGommeHD");
         ItemStack kopf2 = KopfUtil.createSkull("Benx","§cBenx");
@@ -102,7 +101,6 @@ public class CaseItems {
         cases.add(emote9);
         cases.add(emote10);
         cases.add(emote11);
-        cases.add(emote12);
         cases.add(kopf1);
         cases.add(kopf2);
         cases.add(kopf3);
