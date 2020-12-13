@@ -39,7 +39,10 @@ public class PlayerInteractEvent implements Listener {
                                 p.playSound(p.getLocation(), Sound.VILLAGER_NO, 1L, 1L);
                                 return;
                             }
+                            p.playSound(p.getLocation(), Sound.CHICKEN_EGG_POP, 1L, 1L);
+                            p.playSound(p.getLocation(), Sound.LEVEL_UP, 2L ,2L);
                             p.openInventory(CosmeticManager.getMainmenu(p.getUniqueId()));
+                            LobbySystem.p.add(p);
                         }else if(e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §6Lobby Menü")){
                             playerLobby(p);
                         }

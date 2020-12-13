@@ -5,9 +5,9 @@ import me.bluenitrox.lobby.cases.CaseManager;
 import me.bluenitrox.lobby.utils.ItemBuilder;
 import me.bluenitrox.lobby.utils.KopfUtil;
 import org.bukkit.Bukkit;
-import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Sound;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
@@ -32,18 +32,31 @@ public class CosmeticManager {
                 p.playSound(p.getLocation(), Sound.VILLAGER_NO, 1L, 1L);
                 return;
             }
+            LobbySystem.p.add(p);
             if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §6Banner")){
                 p.openInventory(getBanner(p.getUniqueId()));
+                p.playSound(p.getLocation(), Sound.CHICKEN_EGG_POP, 1L, 1L);
+                p.playSound(p.getLocation(), Sound.LEVEL_UP, 2L ,2L);
             }else if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §6Emotes")){
                 p.openInventory(getEmotes(p.getUniqueId()));
+                p.playSound(p.getLocation(), Sound.CHICKEN_EGG_POP, 1L, 1L);
+                p.playSound(p.getLocation(), Sound.LEVEL_UP, 2L ,2L);
             }else if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §6Gadget")){
                 p.openInventory(getGadgets(p.getUniqueId()));
+                p.playSound(p.getLocation(), Sound.CHICKEN_EGG_POP, 1L, 1L);
+                p.playSound(p.getLocation(), Sound.LEVEL_UP, 2L ,2L);
             }else if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §6Köpfe")){
                 p.openInventory(getKöpfe(p.getUniqueId()));
+                p.playSound(p.getLocation(), Sound.CHICKEN_EGG_POP, 1L, 1L);
+                p.playSound(p.getLocation(), Sound.LEVEL_UP, 2L ,2L);
             }else if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §6Bekleidung")){
                 p.openInventory(getBekleidung(p.getUniqueId()));
+                p.playSound(p.getLocation(), Sound.CHICKEN_EGG_POP, 1L, 1L);
+                p.playSound(p.getLocation(), Sound.LEVEL_UP, 2L ,2L);
             }else if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §6Fähigkeiten")){
                 p.openInventory(getFähigkeiten(p.getUniqueId()));
+                p.playSound(p.getLocation(), Sound.CHICKEN_EGG_POP, 1L, 1L);
+                p.playSound(p.getLocation(), Sound.LEVEL_UP, 2L ,2L);
             }
         }
     }
@@ -57,7 +70,7 @@ public class CosmeticManager {
         ItemStack emote = new ItemBuilder(Material.EMPTY_MAP).setDisplayname("§8» §6Emotes").setLore("§8● §aKlicke hier§7, um das §6§lEmotes GUI §7zu öffnen.").build();
         ItemStack gadget = new ItemBuilder(Material.FISHING_ROD).setDisplayname("§8» §6Gadget").setLore("§8● §aKlicke hier§7, um das §6§lGadget GUI §7zu öffnen.").build();
         ItemStack head = new ItemBuilder(Material.SKULL_ITEM).setDisplayname("§8» §6Köpfe").setLore("§8● §aKlicke hier§7, um das §6§lKöpfe GUI §7zu öffnen.").build();
-        ItemStack armor = new ItemBuilder(Material.DIAMOND_CHESTPLATE).setDisplayname("§8» §6Bekleidung").setLore("§8● §aKlicke hier§7, um das §6§lBekleidung GUI §7zu öffnen.").build();
+        ItemStack armor = new ItemBuilder(Material.DIAMOND_CHESTPLATE).addEnchant(Enchantment.ARROW_DAMAGE,10,false).setDisplayname("§8» §6Bekleidung").setLore("§8● §aKlicke hier§7, um das §6§lBekleidung GUI §7zu öffnen.").build();
         ItemStack fähigkeit = new ItemBuilder(Material.PAPER).setDisplayname("§8» §6Fähigkeiten").setLore("§8● §aKlicke hier§7, um das §6§lFähigkeiten GUI §7zu öffnen.").build();
 
         for(int i = 0; i<= 8; i++){
