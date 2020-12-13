@@ -3,6 +3,7 @@ main: me.bluenitrox.lobby.LobbySystem
 description: "This is a Plugin of one German programmer."
 authors: [1BlueNitrox - Felix]
 version: 1.0
+depend: [CloudNet-Bridge]
 
 commands:
   set:

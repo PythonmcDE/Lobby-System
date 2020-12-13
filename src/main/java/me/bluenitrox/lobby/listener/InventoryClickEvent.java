@@ -32,7 +32,6 @@ public class InventoryClickEvent implements Listener {
         }else if(e.getClickedInventory().getName().equalsIgnoreCase("§8» §6§lCase-Opening")){
             inventoryClickCase(p);
         }else if(e.getClickedInventory().getName().equalsIgnoreCase("§8» §6Lobby wechseln") && e.getCurrentItem() != null){
-            Bukkit.broadcastMessage(this.playerManager.getOnlinePlayers(p.getName()) +"");
             List<? extends ICloudPlayer> cloudPlayers = this.playerManager.getOnlinePlayers(p.getName());
             ICloudPlayer entry = cloudPlayers.get(0);
             String[] Lobby = e.getCurrentItem().getItemMeta().getDisplayName().split(" ");

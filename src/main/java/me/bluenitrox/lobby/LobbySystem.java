@@ -60,6 +60,7 @@ public class LobbySystem extends JavaPlugin {
         pm.registerEvents(new DamageEvent(), this);
         pm.registerEvents(new EatEvent(), this);
         pm.registerEvents(new WeatherChange(), this);
+        pm.registerEvents(new PlayerChatEvent(), this);
 
         Multiplikator mp = new Multiplikator(this);
         mp.initialize();
