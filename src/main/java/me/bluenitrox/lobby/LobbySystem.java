@@ -45,6 +45,7 @@ public class LobbySystem extends JavaPlugin {
         getCommand("feed").setExecutor(new Feed());
         getCommand("fly").setExecutor(new Fly());
         getCommand("set").setExecutor(new SetLocations());
+        getCommand("coinshop").setExecutor(new CoinShopNPC());
         getCommand("build").setExecutor(new Build());
 
         pm.registerEvents(new PlayerJoinListener(), this);

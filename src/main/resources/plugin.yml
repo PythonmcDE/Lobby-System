@@ -22,6 +22,7 @@ commands:
     description: "This Command set you or a Player in the Flymode. Usage: /fly [Player]"
     aliases:
       - fliegen
+  coinshop:
   build:
     aliases:
       - bauen
