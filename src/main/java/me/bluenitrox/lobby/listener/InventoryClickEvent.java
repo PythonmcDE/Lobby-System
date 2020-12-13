@@ -1,7 +1,9 @@
 package me.bluenitrox.lobby.listener;
 
+import me.bluenitrox.lobby.commands.Build;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -11,10 +13,12 @@ public class InventoryClickEvent implements Listener {
     @EventHandler
     public void onClick(final org.bukkit.event.inventory.InventoryClickEvent e){
         Player p = (Player)e.getWhoClicked();
-        e.setCancelled(true);
-        if(e.getClickedInventory().getName().equalsIgnoreCase("§8Wen möchtest du sehen?")){
+        if(!Build.build.contains(p)) {
+            e.setCancelled(true);
+        }
+        if(e.getClickedInventory().getName().equalsIgnoreCase("§8» §6Spieler-Sichtbarkeit")){
             inventoryClick(e,p);
-        }else if(e.getClickedInventory().getName().equalsIgnoreCase("§8Welches Gadget möchtest du auswählen?")){
+        }else if(e.getClickedInventory().getName().equalsIgnoreCase("§8» §6Cosmetics")){
 
         }
     }
@@ -37,6 +41,8 @@ public class InventoryClickEvent implements Listener {
                     p.hidePlayer(all);
                 }
             }
+            p.playSound(p.getLocation(), Sound.LEVEL_UP, 1L, 1L);
+            p.closeInventory();
         }
     }
 

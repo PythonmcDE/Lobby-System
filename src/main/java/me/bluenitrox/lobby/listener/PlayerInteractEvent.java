@@ -19,13 +19,14 @@ public class PlayerInteractEvent implements Listener {
             if(e.getPlayer().getItemInHand() != null){
                 if(e.getPlayer().getItemInHand().getItemMeta() != null){
                     if(e.getPlayer().getItemInHand().getItemMeta().getDisplayName() != null){
-                        if(e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§6Spieler-Sichtbarkeit")){
+                        e.setCancelled(true);
+                        if(e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §6Spieler-Sichtbarkeit")){
                             playerVisibility(p);
-                        }else if(e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§6Navigator")){
+                        }else if(e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §6Navigator")){
 
-                        }else if(e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§6Mein Profil")){
-
-                        }else if(e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§6Gadgets")){
+                        }else if(e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §6Freunde")){
+                            p.chat("/friendgui");
+                        }else if(e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §6Cosmetics")){
                             playerGadgets(p);
                         }
                     }
@@ -35,27 +36,36 @@ public class PlayerInteractEvent implements Listener {
     }
 
     private void playerVisibility(Player p){
-        Inventory inv = Bukkit.createInventory(null, 9*3, "§8Wen möchtest du sehen?");
+        Inventory inv = Bukkit.createInventory(null, 9*6, "§8» §6Spieler-Sichtbarkeit");
 
-        ItemStack glas = new ItemBuilder(Material.STAINED_GLASS_PANE, (short)7).setDisplayname(" ").build();
+        ItemStack glas = new ItemBuilder(Material.STAINED_GLASS_PANE).setDisplayname(" ").build();
+        ItemStack glasblack = new ItemBuilder(Material.STAINED_GLASS_PANE,(short)15).setDisplayname(" ").build();
+        ItemStack sign = new ItemBuilder(Material.SIGN).setDisplayname("§8» §6Wähle aus..").setLore("§8● §7Wähle aus wen du in der Lobby sehen möchtest.", " ", "§cInfo:", "§8● §7Wenn du §bPrime§7 nimmst siehst du alle Spieler die §bPrime", "§8● §7oder höher haben.").build();
 
         ItemStack jeden = new ItemBuilder(Material.WOOL, (short) 13).setDisplayname("§aJeden").build();
-        ItemStack someone = new ItemBuilder(Material.WOOL, (short) 1).setDisplayname("§eNur Prime und Teammitglieder").build();
+        ItemStack someone = new ItemBuilder(Material.WOOL, (short) 1).setDisplayname("§eNur Premium und Teammitglieder").build();
         ItemStack nobody = new ItemBuilder(Material.WOOL, (short) 14).setDisplayname("§cNiemanden").build();
 
-        for(int i = 0; i<=26; i++){
+        for(int i = 0; i<=8; i++){
             inv.setItem(i,glas);
         }
+        for(int i = 36; i<=44; i++){
+            inv.setItem(i,glas);
+        }
+        for(int i = 45; i<=53; i++){
+            inv.setItem(i,glasblack);
+        }
 
-        inv.setItem(10,jeden);
-        inv.setItem(13,someone);
-        inv.setItem(16,nobody);
+        inv.setItem(19,jeden);
+        inv.setItem(22,someone);
+        inv.setItem(25,nobody);
+        inv.setItem(49,sign);
 
         p.openInventory(inv);
     }
 
     private void playerGadgets(Player p){
-        Inventory inv = Bukkit.createInventory(null, 9*3, "§8Welches Gadget möchtest du auswählen?");
+        Inventory inv = Bukkit.createInventory(null, 9*3, "§8» §6Cosmetics");
 
         ItemStack glas = new ItemBuilder(Material.STAINED_GLASS_PANE, (short)7).setDisplayname(" ").build();
 

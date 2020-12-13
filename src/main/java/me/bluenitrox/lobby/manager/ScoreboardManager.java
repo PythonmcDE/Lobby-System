@@ -1,11 +1,9 @@
 package me.bluenitrox.lobby.manager;
 
-import me.bluenitrox.all.Database;
+//import me.bluenitrox.all.Database;
 import net.minecraft.server.v1_8_R3.*;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;
-
-import java.util.UUID;
 
 public class ScoreboardManager {
 
@@ -19,13 +17,13 @@ public class ScoreboardManager {
 
         ScoreboardScore a1 = new ScoreboardScore(scoreboard, obj, " ");
         ScoreboardScore a2 = new ScoreboardScore(scoreboard, obj, "§8● §7Coins");
-        ScoreboardScore a11 = new ScoreboardScore(scoreboard, obj, "  §7" + Database.getCoins(p.getUniqueId()));
+        ScoreboardScore a11 = new ScoreboardScore(scoreboard, obj, "§8➝  §61000");//Database.getCoins(p.getUniqueId())
         ScoreboardScore a4 = new ScoreboardScore(scoreboard, obj, "  ");
         ScoreboardScore a5 = new ScoreboardScore(scoreboard, obj, "§8● §7Teamspeak");
-        ScoreboardScore a12 = new ScoreboardScore(scoreboard, obj, "§a  §7DemonMC.eu");
-        ScoreboardScore a6 = new ScoreboardScore(scoreboard, obj, "    ");
+        ScoreboardScore a12 = new ScoreboardScore(scoreboard, obj, "§8➝  §6DemonMC.eu");
+        ScoreboardScore a6 = new ScoreboardScore(scoreboard, obj, "           ");
         ScoreboardScore a30 = new ScoreboardScore(scoreboard, obj, "§8● §7Website");
-        ScoreboardScore a40 = new ScoreboardScore(scoreboard, obj, "§b  §7DemonMC.eu");
+        ScoreboardScore a40 = new ScoreboardScore(scoreboard, obj, "§a§8➝  §6DemonMC.eu");
         ScoreboardScore a41 = new ScoreboardScore(scoreboard, obj, "    ");
         ScoreboardScore a7 = new ScoreboardScore(scoreboard, obj, "§8§m-------------");
         ScoreboardScore a8 = new ScoreboardScore(scoreboard, obj, "§8» §7IP: §c§lDemonMC.eu");
