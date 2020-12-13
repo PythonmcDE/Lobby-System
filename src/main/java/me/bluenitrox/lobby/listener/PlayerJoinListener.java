@@ -31,6 +31,9 @@ public class PlayerJoinListener implements Listener {
         p.getInventory().clear();
         p.setGameMode(GameMode.SURVIVAL);
         givePlayerItems(p);
+        if(CaseManager.getItems(p.getUniqueId(), "doublejump", "bekleidung") > 0){
+            PlayerToggleFlightEvent.doublejump.add(p);
+        }
     }
 
     private void givePlayerItems(Player p){

@@ -3,6 +3,7 @@ package me.bluenitrox.lobby.listener;
 import me.bluenitrox.lobby.cases.CaseAPI;
 import me.bluenitrox.lobby.cases.CaseManager;
 import me.bluenitrox.lobby.commands.Build;
+import me.bluenitrox.lobby.manager.CosmeticManager;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -25,6 +26,7 @@ public class InventoryClickEvent implements Listener {
         }else if(e.getClickedInventory().getName().equalsIgnoreCase("§8» §6§lCase-Opening")){
             inventoryClickCase(p);
         }
+        CosmeticManager.onClick(e);
     }
 
     private void inventoryClick(final org.bukkit.event.inventory.InventoryClickEvent e, Player p){

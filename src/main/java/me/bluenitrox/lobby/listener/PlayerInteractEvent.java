@@ -1,10 +1,14 @@
 package me.bluenitrox.lobby.listener;
 
+import me.bluenitrox.lobby.LobbySystem;
 import me.bluenitrox.lobby.cases.CaseManager;
+import me.bluenitrox.lobby.manager.CosmeticManager;
+import me.bluenitrox.lobby.manager.MessageManager;
 import me.bluenitrox.lobby.utils.ItemBuilder;
 import me.bluenitrox.lobby.utils.KopfUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -30,7 +34,12 @@ public class PlayerInteractEvent implements Listener {
                         }else if(e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §6Freunde")){
                             p.chat("/friendgui");
                         }else if(e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §6Cosmetics")){
-                            playerGadgets(p);
+                            if(LobbySystem.p.contains(p)){
+                                p.sendMessage(MessageManager.PREFIX + "§7Warte einen Augenblick bis du das wieder benutzen kannst");
+                                p.playSound(p.getLocation(), Sound.VILLAGER_NO, 1L, 1L);
+                                return;
+                            }
+                            p.openInventory(CosmeticManager.getMainmenu(p.getUniqueId()));
                         }else if(e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §6Lobby Menü")){
                             playerLobby(p);
                         }
@@ -112,28 +121,6 @@ public class PlayerInteractEvent implements Listener {
         inv.setItem(22,someone);
         inv.setItem(25,nobody);
         inv.setItem(49,sign);
-
-        p.openInventory(inv);
-    }
-
-    private void playerGadgets(Player p){
-        Inventory inv = Bukkit.createInventory(null, 9*3, "§8» §6Cosmetics");
-
-        ItemStack glas = new ItemBuilder(Material.STAINED_GLASS_PANE, (short)7).setDisplayname(" ").build();
-
-        ItemStack diamondboots = new ItemBuilder(Material.DIAMOND_BOOTS).setDisplayname("§8» §6§lEffektrüstung").build();
-        ItemStack emotes = new ItemBuilder(Material.MAP).setDisplayname("§8» §6§lDeine Emotes").build();
-        ItemStack banner = new ItemBuilder(Material.BANNER,(short)1).setDisplayname("§8» §6§lDeine Banner").build();
-        ItemStack gadgets = new ItemBuilder(Material.FISHING_ROD).setDisplayname("§8» §6§lDeine Gadgets").build();
-
-        for(int i = 0; i<= 26; i++){
-            inv.setItem(i, glas);
-        }
-
-        inv.setItem(10, diamondboots);
-        inv.setItem(12,emotes);
-        inv.setItem(14,banner);
-        inv.setItem(16,gadgets);
 
         p.openInventory(inv);
     }

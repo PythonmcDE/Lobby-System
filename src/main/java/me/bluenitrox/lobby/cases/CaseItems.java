@@ -1,6 +1,7 @@
 package me.bluenitrox.lobby.cases;
 
 import me.bluenitrox.lobby.utils.ItemBuilder;
+import me.bluenitrox.lobby.utils.KopfUtil;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
@@ -53,6 +54,22 @@ public class CaseItems {
         ItemStack emote11 = new ItemBuilder(Material.EMPTY_MAP).setDisplayname("§8» §7Emote:").setLore("§8● §7Schreibe: §8\":idk§8\"").build();
         ItemStack emote12 = new ItemBuilder(Material.EMPTY_MAP).setDisplayname("§8» §7Emote:").setLore("§8● §7Schreibe: §8\"§8\"").build();
 
+        ItemStack kopf1 = KopfUtil.createSkull("GommeHD","§cGommeHD");
+        ItemStack kopf2 = KopfUtil.createSkull("Benx","§cBenx");
+        ItemStack kopf3 = KopfUtil.createSkull("Paluten","§cPaluten");
+        ItemStack kopf4 = KopfUtil.createSkull("GermanLetsPlay","§cGermanLetsPlay");
+        ItemStack kopf5 = KopfUtil.createSkull("AbgegrieftHD","§cAbgegrieftHD");
+        ItemStack kopf6 = KopfUtil.createSkull("Logo","§cLogo");
+
+        ItemStack banner1 = new ItemBuilder(Material.BANNER,(short)4).setDisplayname("§7Banner §1Blau").build();
+        ItemStack banner2 = new ItemBuilder(Material.BANNER,(short)1).setDisplayname("§7Banner §4Rot").build();
+        ItemStack banner3 = new ItemBuilder(Material.BANNER,(short)10).setDisplayname("§7Banner §aGrün").build();
+        ItemStack banner4 = new ItemBuilder(Material.BANNER,(short)11).setDisplayname("§7Banner §eGelb").build();
+        ItemStack banner5 = new ItemBuilder(Material.BANNER,(short)7).setDisplayname("§7Banner §7Grau").build();
+        ItemStack banner6 = new ItemBuilder(Material.BANNER,(short)0).setDisplayname("§7Banner §0Schwarz").build();
+        ItemStack banner7 = new ItemBuilder(Material.BANNER,(short)13).setDisplayname("§7Banner §dPink").build();
+        ItemStack banner8 = new ItemBuilder(Material.BANNER,(short)14).setDisplayname("§7Banner §6Orange").build();
+
         cases.add(rd);
         cases.add(rd1);
         cases.add(rd2);
@@ -86,6 +103,20 @@ public class CaseItems {
         cases.add(emote10);
         cases.add(emote11);
         cases.add(emote12);
+        cases.add(kopf1);
+        cases.add(kopf2);
+        cases.add(kopf3);
+        cases.add(kopf4);
+        cases.add(kopf5);
+        cases.add(kopf6);
+        cases.add(banner1);
+        cases.add(banner2);
+        cases.add(banner3);
+        cases.add(banner4);
+        cases.add(banner5);
+        cases.add(banner6);
+        cases.add(banner7);
+        cases.add(banner8);
 
 
 

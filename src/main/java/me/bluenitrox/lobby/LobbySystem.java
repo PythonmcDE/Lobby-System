@@ -8,12 +8,14 @@ import me.bluenitrox.lobby.utils.Multiplikator;
 import me.bluenitrox.lobby.commands.*;
 import me.bluenitrox.lobby.listener.*;
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class LobbySystem extends JavaPlugin {
@@ -26,6 +28,9 @@ public class LobbySystem extends JavaPlugin {
 
      */
 
+
+    public static ArrayList<Player> p = new ArrayList<>();
+
     public static LobbySystem instance;
 
     @Override
@@ -33,6 +38,7 @@ public class LobbySystem extends JavaPlugin {
         instance = this;
         startMySQL();
         register(Bukkit.getPluginManager());
+        runnable();
     }
 
     @Override
@@ -59,11 +65,20 @@ public class LobbySystem extends JavaPlugin {
         pm.registerEvents(new AchievmentEvent(), this);
         pm.registerEvents(new BreakEvent(), this);
         pm.registerEvents(new DamageEvent(), this);
+        pm.registerEvents(new EatEvent(), this);
 
         Multiplikator mp = new Multiplikator(this);
         mp.initialize();
     }
 
+    public void runnable(){
+        new BukkitRunnable(){
+            @Override
+            public void run() {
+                p.clear();
+            }
+        }.runTaskTimerAsynchronously(this, 20*10,20*10);
+    }
 
     public void startMySQL(){
         MySQL_File file = new MySQL_File();
@@ -101,6 +116,13 @@ public class LobbySystem extends JavaPlugin {
 
         try {
             PreparedStatement ps = MySQL.getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS `emotes` ( `UUID` VARCHAR(36) NOT NULL , `rightright` INT(11) NOT NULL , `leftleft` INT(11) NOT NULL, `rechts` INT(11) NOT NULL, `richtig` INT(11) NOT NULL, `x` INT(11) NOT NULL, `herz` INT(11) NOT NULL, `angry` INT(11) NOT NULL, `eye` INT(11) NOT NULL, `sad` INT(11) NOT NULL, `headphone` INT(11) NOT NULL, `idk` INT(11) NOT NULL,PRIMARY KEY (`UUID`))");
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            PreparedStatement ps = MySQL.getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS `kopf` ( `UUID` VARCHAR(36) NOT NULL , `gomme` INT(11) NOT NULL , `benx` INT(11) NOT NULL, `palle` INT(11) NOT NULL, `glp` INT(11) NOT NULL, `abge` INT(11) NOT NULL, `logo` INT(11) NOT NULL,PRIMARY KEY (`UUID`))");
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

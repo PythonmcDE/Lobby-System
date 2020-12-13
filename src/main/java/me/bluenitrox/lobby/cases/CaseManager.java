@@ -16,11 +16,21 @@ public class CaseManager {
     public static void givePlayerWin(Player p, ItemStack win){
         UUID uuid = p.getUniqueId();
         if(win.getItemMeta().getDisplayName().equalsIgnoreCase("§e§lLobby-Coins")){
+            /*
+
+            LOBBYCOINS
+
+             */
             String[] amount = win.getItemMeta().getLore().get(0).split(" ");
             int wert = Integer.parseInt(amount[2]);
             Database.update(p.getUniqueId(), wert, false);
             p.sendMessage(MessageManager.PREFIX + "§7Du hast §6§l" + wert + " Coins §7gewonnen!");
         }else if(win.getItemMeta().getDisplayName().startsWith("§8» §7Emote:")){
+            /*
+
+            EMOTES
+
+             */
             if(win.getItemMeta().getDisplayName().equalsIgnoreCase("§8» §7Emote:§b »")){
                 updateItems(uuid, 1, false, "rightright","emotes");
             }else if(win.getItemMeta().getDisplayName().equalsIgnoreCase("§8» §7Emote:§b «")){
@@ -45,6 +55,11 @@ public class CaseManager {
                 updateItems(uuid, 1, false, "idk","emotes");
             }
         }else if(win.getItemMeta().getDisplayName().startsWith("§8» §7Fähigkeit:§6")){
+            /*
+
+            FÄHIGKEITEN
+
+             */
             if(win.getItemMeta().getDisplayName().equalsIgnoreCase("§8» §7Fähigkeit:§6 Doublejump")){
                 updateItems(uuid,1, false, "doublejump","bekleidung");
             }else if(win.getItemMeta().getDisplayName().equalsIgnoreCase("§8» §7Fähigkeit:§6 Speed")){
@@ -52,6 +67,12 @@ public class CaseManager {
             }else if(win.getItemMeta().getDisplayName().equalsIgnoreCase("§8» §7Fähigkeit:§6 Sprungkraft")){
                 updateItems(uuid,1, false, "sprungkraft","bekleidung");
             }
+
+            /*
+
+            GADGETS
+
+             */
         }else if(win.getItemMeta().getDisplayName().equalsIgnoreCase("§6§lBombe")){
             updateItems(uuid, 1, false, "tnt", "gadgets");
         }else if(win.getItemMeta().getDisplayName().equalsIgnoreCase("§6§lEnterhaken")){
@@ -61,6 +82,11 @@ public class CaseManager {
         }else if(win.getItemMeta().getDisplayName().equalsIgnoreCase("§6§lEierwerfer")){
             updateItems(uuid, 1, false, "gold", "gadgets");
         }else if(win.getItemMeta().getDisplayName().startsWith("§7Banner")){
+            /*
+
+            BANNER
+
+             */
             if(win.getItemMeta().getDisplayName().equalsIgnoreCase("§7Banner §1Blau")){
                 updateItems(uuid, 1, false, "bannerblue", "gadgets");
             }else if(win.getItemMeta().getDisplayName().equalsIgnoreCase("§7Banner §4Rot")){
@@ -78,6 +104,39 @@ public class CaseManager {
             }else if(win.getItemMeta().getDisplayName().equalsIgnoreCase("§7Banner §6Orange")){
                 updateItems(uuid, 1, false, "bannerorange", "gadgets");
             }
+
+            /*
+
+            KÖPFE
+
+             */
+        }else if(win.getItemMeta().getDisplayName().equalsIgnoreCase("§cGommeHD")){
+            updateItems(uuid, 1, false, "gomme", "kopf");
+        }else if(win.getItemMeta().getDisplayName().equalsIgnoreCase("§cBenx")){
+            updateItems(uuid, 1, false, "benx", "kopf");
+        }else if(win.getItemMeta().getDisplayName().equalsIgnoreCase("§cPaluten")){
+            updateItems(uuid, 1, false, "palle", "kopf");
+        }else if(win.getItemMeta().getDisplayName().equalsIgnoreCase("§cGermanLetsPlay")){
+            updateItems(uuid, 1, false, "glp", "kopf");
+        }else if(win.getItemMeta().getDisplayName().equalsIgnoreCase("§cAbgegrieftHD")){
+            updateItems(uuid, 1, false, "abge", "kopf");
+        }else if(win.getItemMeta().getDisplayName().equalsIgnoreCase("§cLogo")){
+            updateItems(uuid, 1, false, "logo", "kopf");
+            /*
+
+            BEKLEIDUNG
+
+             */
+        }else if(win.getItemMeta().getDisplayName().equalsIgnoreCase("§c§lVolle Dämonen Brustplatte")){
+            updateItems(uuid, 1, false, "daemonen", "bekleidung");
+        }else if(win.getItemMeta().getDisplayName().equalsIgnoreCase("§9§lDrip Boots")){
+            updateItems(uuid, 1, false, "drip", "bekleidung");
+        }else if(win.getItemMeta().getDisplayName().equalsIgnoreCase("§6§lFlame Boots")){
+            updateItems(uuid, 1, false, "flame", "bekleidung");
+        }else if(win.getItemMeta().getDisplayName().equalsIgnoreCase("§5§lZauberer Schuhe")){
+            updateItems(uuid, 1, false, "zauberer", "bekleidung");
+        }else if(win.getItemMeta().getDisplayName().equalsIgnoreCase("§b§lSchnee Schuhe")){
+            updateItems(uuid, 1, false, "schnee", "bekleidung");
         }
     }
 

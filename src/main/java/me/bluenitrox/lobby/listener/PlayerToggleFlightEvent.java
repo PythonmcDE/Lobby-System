@@ -12,13 +12,17 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.util.Vector;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class PlayerToggleFlightEvent implements Listener {
 
+    public static ArrayList<Player> doublejump = new ArrayList<>();
 
     @EventHandler
     public void onPlayerToggleFlightEvent(org.bukkit.event.player.PlayerToggleFlightEvent ev) {
         Player p = ev.getPlayer();
-        if (CaseManager.getItems(p.getUniqueId(), "doublejump", "bekleidung") > 0 && p.getGameMode() == GameMode.SURVIVAL) {
+        if (doublejump.contains(p) && p.getGameMode() == GameMode.SURVIVAL) {
             ev.setCancelled(true);
             p.setFlying(false);
             p.setAllowFlight(false);
@@ -31,7 +35,7 @@ public class PlayerToggleFlightEvent implements Listener {
     @EventHandler
     public void onPlayerMoveEvent(PlayerMoveEvent ev) {
         Player p = ev.getPlayer();
-        if (CaseManager.getItems(p.getUniqueId(), "doublejump", "bekleidung") > 0 && p.getGameMode() == GameMode.SURVIVAL && p.getLocation().add(0.0D, -1.0D, 0.0D).getBlock().getType() != Material.AIR) {
+        if (doublejump.contains(p) && p.getGameMode() == GameMode.SURVIVAL && p.getLocation().add(0.0D, -1.0D, 0.0D).getBlock().getType() != Material.AIR) {
             p.setFlying(false);
             p.setAllowFlight(true);
         }
