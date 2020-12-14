@@ -153,6 +153,9 @@ public class CaseManager {
         if(!isUserExistsGad(uuid)) {
             configuratePlayerGad(uuid);
         }
+        if(!isUserExistsKopf(uuid)){
+            configuratePlayerKop(uuid);
+        }
     }
 
     public static int get(UUID uuid,String get) {
@@ -297,6 +300,29 @@ public class CaseManager {
         }
     }
 
+    public static void configuratePlayerKop(UUID uuid) {
+        if(!isUserExistsKopf(uuid)) {
+            try(PreparedStatement ps = MySQL.getConnection().prepareStatement("INSERT INTO kopf (UUID, gomme, benx,palle,glp,abge,logo) VALUES (?, ?,?,?,?,?,?)")) {
+                ps.setString(1, uuid.toString());
+                ps.setInt(2, 0);
+                ps.setInt(3, 0);
+                ps.setInt(4, 0);
+                ps.setInt(5, 0);
+                ps.setInt(6, 0);
+                ps.setInt(7, 0);
+                ps.setInt(8, 0);
+                ps.setInt(9, 0);
+                ps.setInt(10, 0);
+                ps.setInt(11, 0);
+                ps.setInt(12, 0);
+                ps.setInt(13, 0);
+                ps.executeUpdate();
+            }catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     private static boolean isUserExists(UUID uuid) {
         try {
             PreparedStatement ps = MySQL.getConnection().prepareStatement("SELECT UUID FROM spielerdaten WHERE UUID = ?");
@@ -324,6 +350,18 @@ public class CaseManager {
     private static boolean isUserExistsBek(UUID uuid) {
         try {
             PreparedStatement ps = MySQL.getConnection().prepareStatement("SELECT UUID FROM bekleidung WHERE UUID = ?");
+            ps.setString(1, uuid.toString());
+            ResultSet rs = ps.executeQuery();
+            return rs.next();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    private static boolean isUserExistsKopf(UUID uuid) {
+        try {
+            PreparedStatement ps = MySQL.getConnection().prepareStatement("SELECT UUID FROM kopf WHERE UUID = ?");
             ps.setString(1, uuid.toString());
             ResultSet rs = ps.executeQuery();
             return rs.next();
