@@ -139,17 +139,32 @@ public class PlayerInteractEvent implements Listener {
     }
 
     private void navigarInv(Player p){
-        Inventory inv = Bukkit.createInventory(null, 9*3, "§8» §6Navigator");
+        Inventory inv = Bukkit.createInventory(null, 9*6, "§8» §6Navigator");
 
-        ItemStack glas = new ItemBuilder(Material.STAINED_GLASS_PANE,(short)15).setDisplayname(" ").build();
+        ItemStack glas = new ItemBuilder(Material.STAINED_GLASS_PANE).setDisplayname(" ").build();
+        ItemStack school = new ItemBuilder(Material.BOOK_AND_QUILL).setDisplayname("§8» §6School").setLore("§8● §aKlicke hier, um dich zu teleportieren...").build();
+        ItemStack spawn = new ItemBuilder(Material.NETHER_STAR).setDisplayname("§8» §6Lobby-Spawn").setLore("§8● §aKlicke hier, um dich zu teleportieren...").build();
+        ItemStack minigames = new ItemBuilder(Material.BOOK_AND_QUILL).setDisplayname("§8» §6Minigames §8(§7Demnächst verfügbar...§8)").setLore("§8● §cKlicke hier, um dich zu teleportieren...").build();
+        ItemStack coinshop = new ItemBuilder(Material.BOOK_AND_QUILL).setDisplayname("§8» §6Coinshop").setLore("§8● §aKlicke hier, um dich zu teleportieren...").build();
+        ItemStack caseopening = new ItemBuilder(Material.BOOK_AND_QUILL).setDisplayname("§8» §6Case-Opening").setLore("§8● §aKlicke hier, um dich zu teleportieren...").build();
 
         for(int i = 0; i<= 9; i++){
             inv.setItem(i,glas);
         }
-
-        for(int i = 17; i<= 26; i++){
+        for(int i = 44; i<= 53; i++){
             inv.setItem(i,glas);
         }
+        inv.setItem(17,glas);
+        inv.setItem(18,glas);
+        inv.setItem(26,glas);
+        inv.setItem(27,glas);
+        inv.setItem(35,glas);
+        inv.setItem(36,glas);
+        inv.setItem(20,school);
+        inv.setItem(22,spawn);
+        inv.setItem(24,minigames);
+        inv.setItem(30,caseopening);
+        inv.setItem(32,coinshop);
 
         p.openInventory(inv);
     }

@@ -8,6 +8,7 @@ import me.bluenitrox.lobby.cases.CaseManager;
 import me.bluenitrox.lobby.cases.CoinShop;
 import me.bluenitrox.lobby.commands.Build;
 import me.bluenitrox.lobby.manager.CosmeticManager;
+import me.bluenitrox.lobby.manager.LocationManager;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -27,15 +28,27 @@ public class InventoryClickEvent implements Listener {
         if(!Build.build.contains(p)) {
             e.setCancelled(true);
         }
-        if(e.getClickedInventory().getName().equalsIgnoreCase("§8» §6Spieler-Sichtbarkeit")){
+        if(e.getClickedInventory().getName().equalsIgnoreCase("§8» §6Spieler-Sichtbarkeit") && e.getCurrentItem() != null){
             inventoryClick(e,p);
-        }else if(e.getClickedInventory().getName().equalsIgnoreCase("§8» §6§lCase-Opening")){
+        }else if(e.getClickedInventory().getName().equalsIgnoreCase("§8» §6§lCase-Opening") && e.getCurrentItem() != null){
             inventoryClickCase(p);
         }else if(e.getClickedInventory().getName().equalsIgnoreCase("§8» §6Lobby wechseln") && e.getCurrentItem() != null){
             List<? extends ICloudPlayer> cloudPlayers = this.playerManager.getOnlinePlayers(p.getName());
             ICloudPlayer entry = cloudPlayers.get(0);
             String[] Lobby = e.getCurrentItem().getItemMeta().getDisplayName().split(" ");
             this.playerManager.getPlayerExecutor(entry).connect(Lobby[1]);
+        }else if(e.getClickedInventory().getName().equalsIgnoreCase("§8» §6Navigator") && e.getCurrentItem() != null){
+            if(e.getCurrentItem().getType() == Material.DRAGON_EGG){
+                p.teleport(new LocationManager("caseopening").getLocation());
+            }else if(e.getCurrentItem().getType() == Material.NETHER_STAR){
+                p.teleport(new LocationManager("spawn").getLocation());
+            }else if(e.getCurrentItem().getType() == Material.ARMOR_STAND){
+                p.playSound(p.getLocation(), Sound.VILLAGER_NO, 1L, 1L);
+            }else if(e.getCurrentItem().getType() == Material.BOOK_AND_QUILL){
+                p.teleport(new LocationManager("school").getLocation());
+            }else if(e.getCurrentItem().getType() == Material.EMERALD){
+                p.teleport(new LocationManager("coinshop").getLocation());
+            }
         }
         CosmeticManager.onClickInv(e);
         CosmeticManager.onClick(e);
