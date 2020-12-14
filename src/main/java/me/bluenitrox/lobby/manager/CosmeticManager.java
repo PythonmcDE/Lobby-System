@@ -73,7 +73,7 @@ public class CosmeticManager {
             }
         }else if(e.getClickedInventory().getName().equalsIgnoreCase("§8» §6Bekleidung") && e.getCurrentItem() != null){
             if(e.getCurrentItem().getType() == Material.CHAINMAIL_BOOTS ||e.getCurrentItem().getType() == Material.IRON_BOOTS ||e.getCurrentItem().getType() == Material.GOLD_BOOTS ||e.getCurrentItem().getType() == Material.DIAMOND_BOOTS){
-                p.getInventory().setHelmet(e.getCurrentItem());
+                p.getInventory().setBoots(e.getCurrentItem());
                 p.closeInventory();
                 p.playSound(p.getLocation(), Sound.CHICKEN_EGG_POP, 1L ,1L);
             }else if(e.getCurrentItem().getType() == Material.LEATHER_CHESTPLATE){
@@ -86,7 +86,7 @@ public class CosmeticManager {
             return;
         }else if(e.getClickedInventory().getName().equalsIgnoreCase("§8» §6Gadgets") && e.getCurrentItem() != null){
             if(e.getCurrentItem().getType() == Material.FISHING_ROD || e.getCurrentItem().getType() == Material.TNT || e.getCurrentItem().getType() == Material.IRON_BARDING || e.getCurrentItem().getType() == Material.GOLD_BARDING){
-                p.setItemInHand(e.getCurrentItem());
+                p.getInventory().setItem(3, e.getCurrentItem());
                 p.closeInventory();
                 p.playSound(p.getLocation(), Sound.CHICKEN_EGG_POP, 1L ,1L);
             }
