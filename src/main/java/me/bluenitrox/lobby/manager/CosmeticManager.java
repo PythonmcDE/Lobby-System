@@ -2,6 +2,7 @@ package me.bluenitrox.lobby.manager;
 
 import me.bluenitrox.lobby.LobbySystem;
 import me.bluenitrox.lobby.cases.CaseManager;
+import me.bluenitrox.lobby.utils.ArmorUtils;
 import me.bluenitrox.lobby.utils.ItemBuilder;
 import me.bluenitrox.lobby.utils.KopfUtil;
 import org.bukkit.Bukkit;
@@ -73,10 +74,12 @@ public class CosmeticManager {
             }
         }else if(e.getClickedInventory().getName().equalsIgnoreCase("§8» §6Bekleidung") && e.getCurrentItem() != null){
             if(e.getCurrentItem().getType() == Material.CHAINMAIL_BOOTS ||e.getCurrentItem().getType() == Material.IRON_BOOTS ||e.getCurrentItem().getType() == Material.GOLD_BOOTS ||e.getCurrentItem().getType() == Material.DIAMOND_BOOTS){
+                ArmorUtils.setArmorNull(p);
                 p.getInventory().setBoots(e.getCurrentItem());
                 p.closeInventory();
                 p.playSound(p.getLocation(), Sound.CHICKEN_EGG_POP, 1L ,1L);
             }else if(e.getCurrentItem().getType() == Material.LEATHER_CHESTPLATE){
+                ArmorUtils.setArmorNull(p);
                 p.getInventory().setChestplate(e.getCurrentItem());
                 p.getInventory().setHelmet(new ItemBuilder(Material.LEATHER_HELMET).setDisplayname("§c§lVolle Dämonen Helm").build());
                 p.getInventory().setLeggings(new ItemBuilder(Material.LEATHER_LEGGINGS).setDisplayname("§c§lVolle Dämonen Hose").build());
