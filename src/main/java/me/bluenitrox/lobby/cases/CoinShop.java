@@ -47,7 +47,7 @@ public class CoinShop {
                 if(Database.getCoins(uuid) > 40000){
                     p.sendMessage(MessageManager.PREFIX + "§7Du hast gerade den §6§lPrime-Rang §7gekauft. Joine erneut auf den Server um ihn §afreizuschalten§7!");
                     IPermissionUser permissionUser = CloudNetDriver.getInstance().getPermissionManagement().getUser(uuid);
-                    permissionUser.addGroup("YouTuber", 5, TimeUnit.DAYS);
+                    permissionUser.addGroup("Prime", 7, TimeUnit.DAYS);
                     p.playSound(p.getLocation(), Sound.LEVEL_UP, 1L, 1L);
                     Database.update(uuid, 40000, true);
                 }else {
