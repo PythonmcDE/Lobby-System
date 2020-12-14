@@ -58,7 +58,7 @@ public class PlayerJoinListener implements Listener {
         p.getInventory().setItem(3, new ItemBuilder(Material.BARRIER).setDisplayname("§4Nicht ausgewählt").setLore("§8● §7Öffne das Cosmetics-Menü und wähle ein Gadget aus.").build());
         p.getInventory().setItem(0, new ItemBuilder(Material.COMPASS).setDisplayname("§8» §6Navigator").setLore("§8● §aKlicke hier§7, um das Teleport-Menü zu §aöffnen§7!").build());
         p.getInventory().setItem(8, kopf);
-        p.getInventory().setItem(4, new ItemBuilder(Material.ENDER_CHEST).setDisplayname("§8» §6Lobby Menü").setLore("§8● §aKlicke hier§7, um das Lobby-Menü zu §aöffnen§7!").build());
+        p.getInventory().setItem(4, new ItemBuilder(Material.WATCH).setDisplayname("§8» §6Lobby Menü").setLore("§8● §aKlicke hier§7, um das Lobby-Menü zu §aöffnen§7!").build());
         p.getInventory().setItem(1, new ItemBuilder(Material.BLAZE_ROD).setDisplayname("§8» §6Spieler-Sichtbarkeit").setLore("§8● §aKlicke hier§7, um das Sichtbarkeits-Menü zu §aöffnen§7!").build());
         p.getInventory().setItem(7, new ItemBuilder(Material.BANNER,(short) 8).setDisplayname("§8» §6Cosmetics").setLore("§8● §aKlicke hier§7, um dein Cosmetics-Menü zu §aöffnen§7!").build());
     }
