@@ -306,6 +306,11 @@ public class CosmeticManager {
         ItemStack emote4 = new ItemBuilder(Material.EMPTY_MAP).setDisplayname("§8» §7Emote:§a ✔").setLore("§8● §7Schreibe: §8\":right:§8\"").build();
         ItemStack emote5 = new ItemBuilder(Material.EMPTY_MAP).setDisplayname("§8» §7Emote:§c ✘").setLore("§8● §7Schreibe: §8\":x:§8\"").build();
         ItemStack emote6 = new ItemBuilder(Material.EMPTY_MAP).setDisplayname("§8» §7Emote:§c ❤").setLore("§8● §7Schreibe: §8\"<3§8\"").build();
+        ItemStack emote7 = new ItemBuilder(Material.EMPTY_MAP).setDisplayname("§8» §7Emote:§f ♪ d◕‿◕b ♪").setLore("§8● §7Schreibe: §8\":headphone:§8\"").build();
+        ItemStack emote8 = new ItemBuilder(Material.EMPTY_MAP).setDisplayname("§8» §7Emote:§f (◕︵◕)").setLore("§8● §7Schreibe: §8\":sad:§8\"").build();
+        ItemStack emote9 = new ItemBuilder(Material.EMPTY_MAP).setDisplayname("§8» §7Emote:§f Ꙭ").setLore("§8● §7Schreibe: §8\":eye:§8\"").build();
+        ItemStack emote10 = new ItemBuilder(Material.EMPTY_MAP).setDisplayname("§8» §7Emote:§f ┌∩┐(◣_◢)┌∩┐").setLore("§8● §7Schreibe: §8\":angry:§8\"").build();
+        ItemStack emote11 = new ItemBuilder(Material.EMPTY_MAP).setDisplayname("§8» §7Emote:§f ¯\\_(ツ)_/¯").setLore("§8● §7Schreibe: §8\":idk:§8\"").build();
 
         for(int i = 0; i<= 9; i++){
             inv.setItem(i, glas);
@@ -360,6 +365,35 @@ public class CosmeticManager {
             inv.setItem(15,not);
         }
 
+        if(CaseManager.getItems(uuid, "headphone", "emotes") >0){
+            inv.setItem(16,emote7);
+        }else {
+            inv.setItem(16,not);
+        }
+
+        if(CaseManager.getItems(uuid, "sad", "emotes") >0){
+            inv.setItem(19,emote8);
+        }else {
+            inv.setItem(19,not);
+        }
+
+        if(CaseManager.getItems(uuid, "eye", "emotes") >0){
+            inv.setItem(20,emote9);
+        }else {
+            inv.setItem(20,not);
+        }
+
+        if(CaseManager.getItems(uuid, "angry", "emotes") >0){
+            inv.setItem(21,emote10);
+        }else {
+            inv.setItem(21,not);
+        }
+
+        if(CaseManager.getItems(uuid, "idk", "emotes") >0){
+            inv.setItem(22,emote11);
+        }else {
+            inv.setItem(22,not);
+        }
 
 
 

@@ -47,11 +47,11 @@ public class CaseItems {
         ItemStack emote4 = new ItemBuilder(Material.EMPTY_MAP).setDisplayname("§8» §7Emote:§a ✔").setLore("§8● §7Schreibe: §8\":right:§8\"").build();
         ItemStack emote5 = new ItemBuilder(Material.EMPTY_MAP).setDisplayname("§8» §7Emote:§c ✘").setLore("§8● §7Schreibe: §8\":x:§8\"").build();
         ItemStack emote6 = new ItemBuilder(Material.EMPTY_MAP).setDisplayname("§8» §7Emote:§c ❤").setLore("§8● §7Schreibe: §8\"<3§8\"").build();
-        ItemStack emote7 = new ItemBuilder(Material.EMPTY_MAP).setDisplayname("§8» §7Emote:").setLore("§8● §7Schreibe: §8\":angry:§8\"").build();
-        ItemStack emote8 = new ItemBuilder(Material.EMPTY_MAP).setDisplayname("§8» §7Emote:").setLore("§8● §7Schreibe: §8\":eye:§8\"").build();
-        ItemStack emote9 = new ItemBuilder(Material.EMPTY_MAP).setDisplayname("§8» §7Emote:").setLore("§8● §7Schreibe: §8\":sad:§8\"").build();
-        ItemStack emote10 = new ItemBuilder(Material.EMPTY_MAP).setDisplayname("§8» §7Emote:").setLore("§8● §7Schreibe: §8\":headphone:§8\"").build();
-        ItemStack emote11 = new ItemBuilder(Material.EMPTY_MAP).setDisplayname("§8» §7Emote:").setLore("§8● §7Schreibe: §8\":idk;§8\"").build();
+        ItemStack emote7 = new ItemBuilder(Material.EMPTY_MAP).setDisplayname("§8» §7Emote:§f ♪ d◕‿◕b ♪").setLore("§8● §7Schreibe: §8\":headphone:§8\"").build();
+        ItemStack emote8 = new ItemBuilder(Material.EMPTY_MAP).setDisplayname("§8» §7Emote:§f (◕︵◕)").setLore("§8● §7Schreibe: §8\":sad:§8\"").build();
+        ItemStack emote9 = new ItemBuilder(Material.EMPTY_MAP).setDisplayname("§8» §7Emote:§f Ꙭ").setLore("§8● §7Schreibe: §8\":eye:§8\"").build();
+        ItemStack emote10 = new ItemBuilder(Material.EMPTY_MAP).setDisplayname("§8» §7Emote:§f ┌∩┐(◣_◢)┌∩┐").setLore("§8● §7Schreibe: §8\":angry:§8\"").build();
+        ItemStack emote11 = new ItemBuilder(Material.EMPTY_MAP).setDisplayname("§8» §7Emote:§f ¯\\_(ツ)_/¯").setLore("§8● §7Schreibe: §8\":idk:§8\"").build();
 
         ItemStack kopf1 = KopfUtil.createSkull("GommeHD","§cGommeHD");
         ItemStack kopf2 = KopfUtil.createSkull("Benx","§cBenx");
