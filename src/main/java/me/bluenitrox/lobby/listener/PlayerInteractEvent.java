@@ -31,7 +31,7 @@ public class PlayerInteractEvent implements Listener {
                         if(e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §6Spieler-Sichtbarkeit")){
                             playerVisibility(p);
                         }else if(e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §6Navigator")){
-
+                            navigarInv(p);
                         }else if(e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §6Freunde")){
                             p.chat("/friendgui");
                         }else if(e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §6Cosmetics")){
@@ -125,6 +125,22 @@ public class PlayerInteractEvent implements Listener {
         inv.setItem(22,someone);
         inv.setItem(25,nobody);
         inv.setItem(49,sign);
+
+        p.openInventory(inv);
+    }
+
+    private void navigarInv(Player p){
+        Inventory inv = Bukkit.createInventory(null, 9*3, "§8» §6Navigator");
+
+        ItemStack glas = new ItemBuilder(Material.STAINED_GLASS_PANE,(short)15).setDisplayname(" ").build();
+
+        for(int i = 0; i<= 9; i++){
+            inv.setItem(i,glas);
+        }
+
+        for(int i = 17; i<= 26; i++){
+            inv.setItem(i,glas);
+        }
 
         p.openInventory(inv);
     }
