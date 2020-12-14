@@ -7,6 +7,7 @@ import me.bluenitrox.lobby.cases.CaseAPI;
 import me.bluenitrox.lobby.cases.CaseManager;
 import me.bluenitrox.lobby.cases.CoinShop;
 import me.bluenitrox.lobby.commands.Build;
+import me.bluenitrox.lobby.commands.DailyReward;
 import me.bluenitrox.lobby.manager.CosmeticManager;
 import me.bluenitrox.lobby.manager.LocationManager;
 import org.bukkit.Bukkit;
@@ -25,6 +26,7 @@ public class InventoryClickEvent implements Listener {
     @EventHandler
     public void onClick(final org.bukkit.event.inventory.InventoryClickEvent e){
         Player p = (Player)e.getWhoClicked();
+        DailyReward dr = new DailyReward();
         if(!Build.build.contains(p)) {
             e.setCancelled(true);
         }
@@ -50,6 +52,7 @@ public class InventoryClickEvent implements Listener {
                 p.teleport(new LocationManager("coinshop").getLocation());
             }
         }
+        dr.dailyRewardClick(e);
         CosmeticManager.onClickInv(e);
         CosmeticManager.onClick(e);
         CoinShop.onClick(e);

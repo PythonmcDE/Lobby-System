@@ -36,6 +36,11 @@ public class LobbySystem extends JavaPlugin {
 
     @Override
     public void onDisable() {
+        try(PreparedStatement ps1 = MySQL.getConnection().prepareStatement("DROP TABLE DailyReward")){
+            ps1.executeUpdate();
+        }catch (SQLException e){
+
+        }
         MySQL.disconnect();
     }
 
@@ -47,6 +52,7 @@ public class LobbySystem extends JavaPlugin {
         getCommand("set").setExecutor(new SetLocations());
         getCommand("coinshop").setExecutor(new CoinShopNPC());
         getCommand("build").setExecutor(new Build());
+        getCommand("dailyreward").setExecutor(new DailyReward());
 
         pm.registerEvents(new PlayerJoinListener(), this);
         pm.registerEvents(new PlayerQuitListener(), this);
@@ -122,6 +128,13 @@ public class LobbySystem extends JavaPlugin {
             PreparedStatement ps = MySQL.getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS `kopf` ( `UUID` VARCHAR(36) NOT NULL , `gomme` INT(11) NOT NULL , `benx` INT(11) NOT NULL, `palle` INT(11) NOT NULL, `glp` INT(11) NOT NULL, `abge` INT(11) NOT NULL, `logo` INT(11) NOT NULL,PRIMARY KEY (`UUID`))");
             ps.executeUpdate();
         } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        try{
+            PreparedStatement ps = MySQL.getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS `DailyReward` ( `UUID` CHAR(36) NOT NULL , `Belohnung` INT(11) NOT NULL");
+            ps.executeUpdate();
+        }catch (SQLException e){
             e.printStackTrace();
         }
 

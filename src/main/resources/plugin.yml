@@ -23,6 +23,9 @@ commands:
     aliases:
       - fliegen
   coinshop:
+  dailyreward:
+    aliases:
+      - daily
   build:
     aliases:
       - bauen
