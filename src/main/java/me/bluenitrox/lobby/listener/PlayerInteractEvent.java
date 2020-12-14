@@ -27,14 +27,22 @@ public class PlayerInteractEvent implements Listener {
             if(e.getPlayer().getItemInHand() != null){
                 if(e.getPlayer().getItemInHand().getItemMeta() != null){
                     if(e.getPlayer().getItemInHand().getItemMeta().getDisplayName() != null){
-                        e.setCancelled(true);
                         if(e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §6Spieler-Sichtbarkeit")){
+                            e.setCancelled(true);
                             playerVisibility(p);
                         }else if(e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §6Navigator")){
+                            e.setCancelled(true);
                             navigarInv(p);
                         }else if(e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §6Freunde")){
+                            e.setCancelled(true);
+                            if(LobbySystem.p.contains(p)){
+                                p.sendMessage(MessageManager.PREFIX + "§7Warte einen Augenblick bis du das wieder benutzen kannst");
+                                p.playSound(p.getLocation(), Sound.VILLAGER_NO, 1L, 1L);
+                                return;
+                            }
                             p.chat("/friendgui");
                         }else if(e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §6Cosmetics")){
+                            e.setCancelled(true);
                             if(LobbySystem.p.contains(p)){
                                 p.sendMessage(MessageManager.PREFIX + "§7Warte einen Augenblick bis du das wieder benutzen kannst");
                                 p.playSound(p.getLocation(), Sound.VILLAGER_NO, 1L, 1L);
@@ -45,6 +53,7 @@ public class PlayerInteractEvent implements Listener {
                             p.openInventory(CosmeticManager.getMainmenu(p.getUniqueId()));
                             LobbySystem.p.add(p);
                         }else if(e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §6Lobby Menü")){
+                            e.setCancelled(true);
                             playerLobby(p);
                         }
                     }
