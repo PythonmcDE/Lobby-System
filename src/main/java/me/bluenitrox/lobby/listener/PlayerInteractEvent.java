@@ -145,9 +145,9 @@ public class PlayerInteractEvent implements Listener {
         ItemStack glas = new ItemBuilder(Material.STAINED_GLASS_PANE).setDisplayname(" ").build();
         ItemStack school = new ItemBuilder(Material.BOOK_AND_QUILL).setDisplayname("§8» §6School").setLore("§8● §aKlicke hier, um dich zu teleportieren...").build();
         ItemStack spawn = new ItemBuilder(Material.NETHER_STAR).setDisplayname("§8» §6Lobby-Spawn").setLore("§8● §aKlicke hier, um dich zu teleportieren...").build();
-        ItemStack minigames = new ItemBuilder(Material.BOOK_AND_QUILL).setDisplayname("§8» §6Minigames §8(§7Demnächst verfügbar...§8)").setLore("§8● §cKlicke hier, um dich zu teleportieren...").build();
-        ItemStack coinshop = new ItemBuilder(Material.BOOK_AND_QUILL).setDisplayname("§8» §6Coinshop").setLore("§8● §aKlicke hier, um dich zu teleportieren...").build();
-        ItemStack caseopening = new ItemBuilder(Material.BOOK_AND_QUILL).setDisplayname("§8» §6Case-Opening").setLore("§8● §aKlicke hier, um dich zu teleportieren...").build();
+        ItemStack minigames = new ItemBuilder(Material.ARMOR_STAND).setDisplayname("§8» §6Minigames §8(§7Demnächst verfügbar...§8)").setLore("§8● §cKlicke hier, um dich zu teleportieren...").build();
+        ItemStack coinshop = new ItemBuilder(Material.EMERALD).setDisplayname("§8» §6Coinshop").setLore("§8● §aKlicke hier, um dich zu teleportieren...").build();
+        ItemStack caseopening = new ItemBuilder(Material.DRAGON_EGG).setDisplayname("§8» §6Case-Opening").setLore("§8● §aKlicke hier, um dich zu teleportieren...").build();
 
         for(int i = 0; i<= 9; i++){
             inv.setItem(i,glas);
