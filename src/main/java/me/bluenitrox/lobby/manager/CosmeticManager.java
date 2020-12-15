@@ -32,6 +32,9 @@ public class CosmeticManager {
             if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §cAlle Gadgets entfernen")){
                 ArmorUtils.setArmorNull(p);
                 p.getInventory().setItem(3, new ItemBuilder(Material.BARRIER).setDisplayname("§8» §4Nichts ausgewählt").setLore("§8● §7Öffne das Cosmetics-Menü und wähle ein Gadget aus.").build());
+                p.closeInventory();
+                p.playSound(p.getLocation(), Sound.CHICKEN_EGG_POP, 1L, 1L);
+                return;
             }
             if(LobbySystem.p.contains(p)){
                 p.sendMessage(MessageManager.PREFIX + "§7Warte einen Augenblick bis du das wieder benutzen kannst");
@@ -89,6 +92,8 @@ public class CosmeticManager {
                 p.getInventory().setHelmet(new ItemBuilder(Material.LEATHER_HELMET).setDisplayname("§c§lVolle Dämonen Helm").build());
                 p.getInventory().setLeggings(new ItemBuilder(Material.LEATHER_LEGGINGS).setDisplayname("§c§lVolle Dämonen Hose").build());
                 p.getInventory().setBoots(new ItemBuilder(Material.LEATHER_BOOTS).setDisplayname("§c§lVolle Dämonen Schuhe").build());
+                p.closeInventory();
+                p.playSound(p.getLocation(), Sound.CHICKEN_EGG_POP, 1L, 1L);
             }
         }else if(e.getClickedInventory().getName().equalsIgnoreCase("§8» §6Fähigkeiten") && e.getCurrentItem() != null){
             return;
