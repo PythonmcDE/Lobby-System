@@ -33,7 +33,9 @@ public class InventoryClickEvent implements Listener {
         if(e.getClickedInventory().getName().equalsIgnoreCase("§8» §6Spieler-Sichtbarkeit") && e.getCurrentItem() != null){
             inventoryClick(e,p);
         }else if(e.getClickedInventory().getName().equalsIgnoreCase("§8» §6§lCase-Opening") && e.getCurrentItem() != null){
-            inventoryClickCase(p);
+            if(e.getCurrentItem().getType() == Material.DRAGON_EGG) {
+                inventoryClickCase(p);
+            }
         }else if(e.getClickedInventory().getName().equalsIgnoreCase("§8» §6Lobby wechseln") && e.getCurrentItem() != null){
             List<? extends ICloudPlayer> cloudPlayers = this.playerManager.getOnlinePlayers(p.getName());
             ICloudPlayer entry = cloudPlayers.get(0);

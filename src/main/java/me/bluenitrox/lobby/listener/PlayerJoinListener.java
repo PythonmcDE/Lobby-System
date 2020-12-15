@@ -78,11 +78,11 @@ public class PlayerJoinListener implements Listener {
         Scoreboard board = manager.getNewScoreboard();
         Objective objective = board.registerNewObjective("showkill", "player_kills");
         objective.setDisplaySlot(DisplaySlot.BELOW_NAME);
-        objective.setDisplayName("§8» §fHier könnte ein cooler Spruch stehen");
+        objective.setDisplayName("ita §c❤");
         for(Player online : Bukkit.getOnlinePlayers()){
             online.setScoreboard(board);
             final Score score = objective.getScore(online);
-            score.setScore(0);
+            score.setScore(7797100);
         }
     }
 

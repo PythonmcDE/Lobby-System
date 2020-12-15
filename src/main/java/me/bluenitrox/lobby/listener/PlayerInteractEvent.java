@@ -40,6 +40,7 @@ public class PlayerInteractEvent implements Listener {
                                 p.playSound(p.getLocation(), Sound.VILLAGER_NO, 1L, 1L);
                                 return;
                             }
+                            LobbySystem.p.add(p);
                             p.chat("/friendgui");
                         }else if(e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §6Cosmetics")){
                             e.setCancelled(true);

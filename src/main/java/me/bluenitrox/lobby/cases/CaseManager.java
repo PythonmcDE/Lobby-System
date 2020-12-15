@@ -143,17 +143,9 @@ public class CaseManager {
     public static void cachPlayerData(UUID uuid){
         if(!isUserExists(uuid)) {
             configuratePlayer(uuid);
-        }
-        if(!isUserExistsEm(uuid)) {
-            configuratePlayerEm(uuid);
-        }
-        if(!isUserExistsBek(uuid)) {
-            configuratePlayerBek(uuid);
-        }
-        if(!isUserExistsGad(uuid)) {
             configuratePlayerGad(uuid);
-        }
-        if(!isUserExistsKopf(uuid)){
+            configuratePlayerBek(uuid);
+            configuratePlayerEm(uuid);
             configuratePlayerKop(uuid);
         }
     }
@@ -310,12 +302,6 @@ public class CaseManager {
                 ps.setInt(5, 0);
                 ps.setInt(6, 0);
                 ps.setInt(7, 0);
-                ps.setInt(8, 0);
-                ps.setInt(9, 0);
-                ps.setInt(10, 0);
-                ps.setInt(11, 0);
-                ps.setInt(12, 0);
-                ps.setInt(13, 0);
                 ps.executeUpdate();
             }catch (SQLException e) {
                 e.printStackTrace();

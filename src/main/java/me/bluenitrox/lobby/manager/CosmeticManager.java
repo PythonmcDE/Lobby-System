@@ -14,6 +14,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.ArrayList;
 import java.util.UUID;
 
 public class CosmeticManager {
@@ -28,6 +29,10 @@ public class CosmeticManager {
     public static void onClick(final InventoryClickEvent e){
         if(e.getClickedInventory().getName().equalsIgnoreCase("§8» §6§lCosmetics")){
             Player p = (Player)e.getWhoClicked();
+            if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §cAlle Gadgets entfernen")){
+                ArmorUtils.setArmorNull(p);
+                p.getInventory().setItem(3, new ItemBuilder(Material.BARRIER).setDisplayname("§8» §4Nichts ausgewählt").setLore("§8● §7Öffne das Cosmetics-Menü und wähle ein Gadget aus.").build());
+            }
             if(LobbySystem.p.contains(p)){
                 p.sendMessage(MessageManager.PREFIX + "§7Warte einen Augenblick bis du das wieder benutzen kannst");
                 p.playSound(p.getLocation(), Sound.VILLAGER_NO, 1L, 1L);
@@ -132,6 +137,7 @@ public class CosmeticManager {
         inv.setItem(32, fähigkeit);
 
         inv.setItem(49,Banner);
+        inv.setItem(53, new ItemBuilder(Material.BARRIER).setDisplayname("§8» §cAlle Gadgets entfernen").setLore("§8● §7Klicke hier, um alle Gadgets zu entfernen!").build());
 
         return inv;
     }
@@ -511,8 +517,6 @@ public class CosmeticManager {
             inv.setItem(i, glas);
         }
 
-        inv.setItem(48,left);
-        inv.setItem(50,right);
         inv.setItem(49,sign);
 
         if(CaseManager.getItems(uuid, "gomme", "kopf") >0){
