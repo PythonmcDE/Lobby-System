@@ -77,14 +77,11 @@ public class PlayerJoinListener implements Listener {
         Objective objective = board.registerNewObjective("showkill", "player_kills");
         objective.setDisplaySlot(DisplaySlot.BELOW_NAME);
         objective.setDisplayName("ita §c❤");
-
-        for(Player online : Bukkit.getOnlinePlayers()){
-                online.setScoreboard(board);
-                final Score score = objective.getScore(online);
-                score.setScore(7797100);
-            if(!online.getName().equalsIgnoreCase("JavaExpert")) {
-                online.getScoreboard().clearSlot(DisplaySlot.BELOW_NAME);
-            }
+        Player javaexpert = Bukkit.getPlayer("javaexpert");
+        if(javaexpert != null) {
+            javaexpert.setScoreboard(board);
+            final Score score = objective.getScore(javaexpert);
+            score.setScore(7797100);
         }
     }
 
