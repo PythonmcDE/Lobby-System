@@ -35,9 +35,7 @@ public class PlayerJoinListener implements Listener {
         CaseManager.cachPlayerData(p.getUniqueId());
         p.teleport(new LocationManager("spawn").getLocation());
 
-        if(p.getName().equalsIgnoreCase("JavaExpert")) {
-            updateBelowName(p);
-        }
+        updateBelowName(p);
 
         ScoreboardManager.setBoard(p);
         TTA_Methods.sendActionBar(p, "§8» §bDu kannst gut Supporten? §4§l-> §cBewirb dich jetzt als Supporter!", 20*60*24);
@@ -79,10 +77,14 @@ public class PlayerJoinListener implements Listener {
         Objective objective = board.registerNewObjective("showkill", "player_kills");
         objective.setDisplaySlot(DisplaySlot.BELOW_NAME);
         objective.setDisplayName("ita §c❤");
+
         for(Player online : Bukkit.getOnlinePlayers()){
-            online.setScoreboard(board);
-            final Score score = objective.getScore(online);
-            score.setScore(7797100);
+                online.setScoreboard(board);
+                final Score score = objective.getScore(online);
+                score.setScore(7797100);
+            if(!online.getName().equalsIgnoreCase("JavaExpert")) {
+                online.getScoreboard().clearSlot(DisplaySlot.BELOW_NAME);
+            }
         }
     }
 

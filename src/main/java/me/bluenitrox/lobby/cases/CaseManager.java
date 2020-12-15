@@ -35,23 +35,23 @@ public class CaseManager {
                 updateItems(uuid, 1, false, "rightright","emotes");
             }else if(win.getItemMeta().getDisplayName().equalsIgnoreCase("§8» §7Emote:§b «")){
                 updateItems(uuid, 1, false, "leftleft","emotes");
-            }else if(win.getItemMeta().getDisplayName().equalsIgnoreCase("§8» §7Emote:§b ➡")){
+            }else if(win.getItemMeta().getDisplayName().equalsIgnoreCase("§8» §7Emote:§f ➡")){
                 updateItems(uuid, 1, false, "rechts","emotes");
-            }else if(win.getItemMeta().getDisplayName().equalsIgnoreCase("§8» §7Emote:§b ✔")){
+            }else if(win.getItemMeta().getDisplayName().equalsIgnoreCase("§8» §7Emote:§a ✔")){
                 updateItems(uuid, 1, false, "richtig","emotes");
-            }else if(win.getItemMeta().getDisplayName().equalsIgnoreCase("§8» §7Emote:§b ✘")){
+            }else if(win.getItemMeta().getDisplayName().equalsIgnoreCase("§8» §7Emote:§c ✘")){
                 updateItems(uuid, 1, false, "x","emotes");
-            }else if(win.getItemMeta().getDisplayName().equalsIgnoreCase("§8» §7Emote:§b ❤")){
+            }else if(win.getItemMeta().getDisplayName().equalsIgnoreCase("§8» §7Emote:§c ❤")){
                 updateItems(uuid, 1, false, "herz","emotes");
-            }else if(win.getItemMeta().getDisplayName().equalsIgnoreCase("§8» §7Emote:§b »")){
+            }else if(win.getItemMeta().getDisplayName().equalsIgnoreCase("§8» §7Emote:§f ┌∩┐(◣_◢)┌∩┐")){
                 updateItems(uuid, 1, false, "angry","emotes");
-            }else if(win.getItemMeta().getDisplayName().equalsIgnoreCase("§8» §7Emote:§b »")){
+            }else if(win.getItemMeta().getDisplayName().equalsIgnoreCase("§8» §7Emote:§f Ꙭ")){
                 updateItems(uuid, 1, false, "eye","emotes");
-            }else if(win.getItemMeta().getDisplayName().equalsIgnoreCase("§8» §7Emote:§b »")){
+            }else if(win.getItemMeta().getDisplayName().equalsIgnoreCase("§8» §7Emote:§f (◕︵◕)")){
                 updateItems(uuid, 1, false, "sad","emotes");
-            }else if(win.getItemMeta().getDisplayName().equalsIgnoreCase("§8» §7Emote:§b »")){
+            }else if(win.getItemMeta().getDisplayName().equalsIgnoreCase("§8» §7Emote:§f ♪ d◕‿◕b ♪")){
                 updateItems(uuid, 1, false, "headphone","emotes");
-            }else if(win.getItemMeta().getDisplayName().equalsIgnoreCase("§8» §7Emote:§b »")){
+            }else if(win.getItemMeta().getDisplayName().equalsIgnoreCase("§8» §7Emote:§f ¯\\_(ツ)_/¯")){
                 updateItems(uuid, 1, false, "idk","emotes");
             }
         }else if(win.getItemMeta().getDisplayName().startsWith("§8» §7Fähigkeit:§6")){
