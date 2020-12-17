@@ -11,7 +11,10 @@ import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.enchantments.Enchantment;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
+import org.bukkit.entity.Snowball;
+import org.bukkit.entity.TNTPrimed;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
@@ -56,6 +59,8 @@ public class PlayerInteractEvent implements Listener {
                         }else if(e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §6Lobby Menü")){
                             e.setCancelled(true);
                             playerLobby(p);
+                        }else{
+                            gadgets(p);
                         }
                     }
                 }
@@ -112,7 +117,6 @@ public class PlayerInteractEvent implements Listener {
 
         p.openInventory(inv);
     }
-
     private void playerVisibility(Player p){
         Inventory inv = Bukkit.createInventory(null, 9*6, "§8» §6Spieler-Sichtbarkeit");
 
@@ -141,7 +145,6 @@ public class PlayerInteractEvent implements Listener {
 
         p.openInventory(inv);
     }
-
     private void navigarInv(Player p){
         Inventory inv = Bukkit.createInventory(null, 9*6, "§8» §6Navigator");
 
@@ -172,7 +175,6 @@ public class PlayerInteractEvent implements Listener {
 
         p.openInventory(inv);
     }
-
     public void playerLobby(Player p){
         Inventory inv = Bukkit.createInventory(null, 9*3, "§8» §6Lobby wechseln");
 
@@ -199,6 +201,18 @@ public class PlayerInteractEvent implements Listener {
         }
 
         p.openInventory(inv);
+    }
+
+    private void gadgets(Player p){
+        if(p.getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§6§lBombe")){
+            p.getWorld().spawn(p.getLocation(), TNTPrimed.class);
+        }else if(p.getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§6§lSchneeballwerfer")){
+            p.launchProjectile(Snowball.class);
+            p.playSound(p.getLocation(), Sound.CHICKEN_EGG_POP, 1L, 1L);
+        }else if(p.getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§6§lEierwerfer")){
+            p.launchProjectile(Snowball.class);
+            p.playSound(p.getLocation(), Sound.CHICKEN_EGG_POP, 1L, 1L);
+        }
     }
 
 }

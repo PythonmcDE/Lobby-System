@@ -82,6 +82,13 @@ public class LobbySystem extends JavaPlugin {
                 p.clear();
             }
         }.runTaskTimerAsynchronously(this, 20*6,20*6);
+        new BukkitRunnable(){
+
+            @Override
+            public void run() {
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "kill @e");
+            }
+        }.runTaskLaterAsynchronously(this, 20*10);
     }
 
     public void startMySQL(){
