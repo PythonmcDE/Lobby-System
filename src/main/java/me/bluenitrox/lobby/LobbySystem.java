@@ -54,6 +54,7 @@ public class LobbySystem extends JavaPlugin {
         getCommand("build").setExecutor(new Build());
         getCommand("dailyreward").setExecutor(new DailyReward());
 
+        pm.registerEvents(new Explode(), this);
         pm.registerEvents(new PlayerJoinListener(), this);
         pm.registerEvents(new PlayerQuitListener(), this);
         pm.registerEvents(new InventoryClickEvent(), this);
@@ -70,7 +71,6 @@ public class LobbySystem extends JavaPlugin {
         pm.registerEvents(new PlayerChatEvent(), this);
         pm.registerEvents(new BootsListener(), this);
         pm.registerEvents(new CreatureSpawnEvent(), this);
-        pm.registerEvents(new Explode(), this);
 
         Multiplikator mp = new Multiplikator(this);
         mp.initialize();

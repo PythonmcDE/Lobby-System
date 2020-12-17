@@ -203,6 +203,8 @@ public class PlayerInteractEvent implements Listener {
     private void gadgets(Player p){
         if(p.getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§6§lBombe")){
             p.getWorld().spawn(p.getLocation(), TNTPrimed.class);
+            p.getWorld().spawn(p.getLocation(), TNTPrimed.class);
+            p.getWorld().spawn(p.getLocation(), TNTPrimed.class);
         }else if(p.getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§6§lSchneeballwerfer")){
             p.launchProjectile(Snowball.class);
             p.playSound(p.getLocation(), Sound.CHICKEN_EGG_POP, 1L, 1L);
