@@ -11,6 +11,7 @@ public class PlayerQuitListener implements Listener {
     public void onQuit(final PlayerQuitEvent e){
         Player p = (Player)e.getPlayer();
         e.setQuitMessage(null);
+        
     }
 
 }
