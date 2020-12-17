@@ -22,6 +22,7 @@ public class CoinShop {
         if(e.getClickedInventory().getName().equalsIgnoreCase("§8» §6§lCoin-Shop") && e.getCurrentItem() != null){
             UUID uuid = e.getWhoClicked().getUniqueId();
             Player p = (Player)e.getWhoClicked();
+            e.setCancelled(true);
             if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§6§lLobby Case")){
                 if(Database.getCoins(uuid) > 10000){
                     CaseManager.update(uuid, 1, false, "cases");
