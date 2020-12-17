@@ -11,10 +11,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.enchantments.Enchantment;
-import org.bukkit.entity.EntityType;
-import org.bukkit.entity.Player;
-import org.bukkit.entity.Snowball;
-import org.bukkit.entity.TNTPrimed;
+import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
@@ -210,7 +207,7 @@ public class PlayerInteractEvent implements Listener {
             p.launchProjectile(Snowball.class);
             p.playSound(p.getLocation(), Sound.CHICKEN_EGG_POP, 1L, 1L);
         }else if(p.getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§6§lEierwerfer")){
-            p.launchProjectile(Snowball.class);
+            p.launchProjectile(Egg.class);
             p.playSound(p.getLocation(), Sound.CHICKEN_EGG_POP, 1L, 1L);
         }
     }
