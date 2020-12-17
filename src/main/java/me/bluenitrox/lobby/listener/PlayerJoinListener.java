@@ -2,14 +2,12 @@ package me.bluenitrox.lobby.listener;
 
 import de.Herbystar.TTA.TTA_Methods;
 import me.bluenitrox.lobby.cases.CaseManager;
-import me.bluenitrox.lobby.manager.CosmeticManager;
 import me.bluenitrox.lobby.manager.LocationManager;
 import me.bluenitrox.lobby.utils.ItemBuilder;
 import me.bluenitrox.lobby.utils.KopfUtil;
 import me.bluenitrox.lobby.manager.ScoreboardManager;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
-import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

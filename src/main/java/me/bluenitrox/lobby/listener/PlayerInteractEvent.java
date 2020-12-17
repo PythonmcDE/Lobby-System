@@ -18,6 +18,8 @@ import org.bukkit.event.block.Action;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
+import javax.persistence.Lob;
+
 public class PlayerInteractEvent implements Listener {
 
     @EventHandler
@@ -202,9 +204,14 @@ public class PlayerInteractEvent implements Listener {
 
     private void gadgets(Player p){
         if(p.getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§6§lBombe")){
-            p.getWorld().spawn(p.getLocation(), TNTPrimed.class);
-            p.getWorld().spawn(p.getLocation(), TNTPrimed.class);
-            p.getWorld().spawn(p.getLocation(), TNTPrimed.class);
+            if(!LobbySystem.tnt.contains(p)) {
+                p.getWorld().spawn(p.getLocation(), TNTPrimed.class);
+                p.getWorld().spawn(p.getLocation(), TNTPrimed.class);
+                p.getWorld().spawn(p.getLocation(), TNTPrimed.class);
+                LobbySystem.tnt.add(p);
+            }else {
+                p.sendMessage(MessageManager.PREFIX + "§7Warte einen §6Augenblick§7.");
+            }
         }else if(p.getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§6§lSchneeballwerfer")){
             p.launchProjectile(Snowball.class);
             p.playSound(p.getLocation(), Sound.CHICKEN_EGG_POP, 1L, 1L);

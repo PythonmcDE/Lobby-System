@@ -23,6 +23,7 @@ public class LobbySystem extends JavaPlugin {
 
 
     public static ArrayList<Player> p = new ArrayList<>();
+    public static ArrayList<Player> tnt = new ArrayList<>();
 
     public static LobbySystem instance;
 
@@ -83,6 +84,12 @@ public class LobbySystem extends JavaPlugin {
                 p.clear();
             }
         }.runTaskTimerAsynchronously(this, 20*6,20*6);
+        new BukkitRunnable(){
+            @Override
+            public void run() {
+                tnt.clear();
+            }
+        }.runTaskTimerAsynchronously(this, 20*20,20*20);
         new BukkitRunnable(){
 
             @Override
