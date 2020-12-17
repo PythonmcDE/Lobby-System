@@ -66,6 +66,9 @@ public class PlayerInteractEvent implements Listener {
                 e.setCancelled(true);
                 caseopeninv(p);
             }
+            if(e.getClickedBlock().getType() == Material.CHEST || e.getClickedBlock().getType() == Material.FURNACE ||e.getClickedBlock().getType() == Material.BURNING_FURNACE ||e.getClickedBlock().getType() == Material.ANVIL ||e.getClickedBlock().getType() == Material.BREWING_STAND || e.getClickedBlock().getType() == Material.ENCHANTMENT_TABLE|| e.getClickedBlock().getType() == Material.TRAP_DOOR|| e.getClickedBlock().getType() == Material.LEVER || e.getClickedBlock().getType() == Material.FENCE_GATE){
+                e.setCancelled(true);
+            }
         }
     }
 

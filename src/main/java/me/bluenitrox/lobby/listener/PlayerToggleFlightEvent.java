@@ -1,6 +1,7 @@
 package me.bluenitrox.lobby.listener;
 
 import me.bluenitrox.lobby.cases.CaseManager;
+import me.bluenitrox.lobby.manager.LocationManager;
 import me.bluenitrox.lobby.utils.Multiplikator;
 import me.bluenitrox.lobby.LobbySystem;
 import org.bukkit.GameMode;
@@ -38,6 +39,9 @@ public class PlayerToggleFlightEvent implements Listener {
         if (doublejump.contains(p) && p.getGameMode() == GameMode.SURVIVAL && p.getLocation().add(0.0D, -1.0D, 0.0D).getBlock().getType() != Material.AIR) {
             p.setFlying(false);
             p.setAllowFlight(true);
+        }
+        if(p.getLocation().getY() <= 0){
+            p.teleport(new LocationManager("spawn").getLocation());
         }
 
     }

@@ -17,14 +17,22 @@ public class CaseItems {
     void registerCases(){
 
         ItemStack rd = new ItemBuilder(Material.DOUBLE_PLANT).setDisplayname("§e§lLobby-Coins").setLore("§8» §7Anzahl:§6 10000").build();
+        ItemStack rd200 = new ItemBuilder(Material.DOUBLE_PLANT).setDisplayname("§e§lLobby-Coins").setLore("§8» §7Anzahl:§6 10000").build();
         ItemStack rd1 = new ItemBuilder(Material.DOUBLE_PLANT).setDisplayname("§e§lLobby-Coins").setLore("§8» §7Anzahl:§6 1000").build();
+        ItemStack rd1200 = new ItemBuilder(Material.DOUBLE_PLANT).setDisplayname("§e§lLobby-Coins").setLore("§8» §7Anzahl:§6 1000").build();
         ItemStack rd2 = new ItemBuilder(Material.DOUBLE_PLANT).setDisplayname("§e§lLobby-Coins").setLore("§8» §7Anzahl:§6 2000").build();
+        ItemStack rd2200 = new ItemBuilder(Material.DOUBLE_PLANT).setDisplayname("§e§lLobby-Coins").setLore("§8» §7Anzahl:§6 2000").build();
         ItemStack rd3 = new ItemBuilder(Material.DOUBLE_PLANT).setDisplayname("§e§lLobby-Coins").setLore("§8» §7Anzahl:§6 5000").build();
+        ItemStack rd3200 = new ItemBuilder(Material.DOUBLE_PLANT).setDisplayname("§e§lLobby-Coins").setLore("§8» §7Anzahl:§6 5000").build();
         ItemStack rd4 = new ItemBuilder(Material.DOUBLE_PLANT).setDisplayname("§e§lLobby-Coins").setLore("§8» §7Anzahl:§6 15000").build();
+        ItemStack rd4200 = new ItemBuilder(Material.DOUBLE_PLANT).setDisplayname("§e§lLobby-Coins").setLore("§8» §7Anzahl:§6 15000").build();
         ItemStack rd5 = new ItemBuilder(Material.DOUBLE_PLANT).setDisplayname("§e§lLobby-Coins").setLore("§8» §7Anzahl:§6 25000").build();
+        ItemStack rd5200 = new ItemBuilder(Material.DOUBLE_PLANT).setDisplayname("§e§lLobby-Coins").setLore("§8» §7Anzahl:§6 25000").build();
         ItemStack rd6 = new ItemBuilder(Material.DOUBLE_PLANT).setDisplayname("§e§lLobby-Coins").setLore("§8» §7Anzahl:§6 1000").build();
         ItemStack rd7 = new ItemBuilder(Material.DOUBLE_PLANT).setDisplayname("§e§lLobby-Coins").setLore("§8» §7Anzahl:§6 1000").build();
+        ItemStack rd7200 = new ItemBuilder(Material.DOUBLE_PLANT).setDisplayname("§e§lLobby-Coins").setLore("§8» §7Anzahl:§6 1000").build();
         ItemStack rd8 = new ItemBuilder(Material.DOUBLE_PLANT).setDisplayname("§e§lLobby-Coins").setLore("§8» §7Anzahl:§6 1000").build();
+        ItemStack rd8200 = new ItemBuilder(Material.DOUBLE_PLANT).setDisplayname("§e§lLobby-Coins").setLore("§8» §7Anzahl:§6 1000").build();
 
         ItemStack rd9 = new ItemBuilder(Material.LEATHER_CHESTPLATE).setDisplayname("§c§lVolle Dämonen Brustplatte").setLore("§8» §7Gegenbogen Effekt").build();
         ItemStack rd10 = new ItemBuilder(Material.DIAMOND_BOOTS).setDisplayname("§9§lDrip Boots").setLore("§8» §7Wasser Partikel").build();
@@ -115,6 +123,14 @@ public class CaseItems {
         cases.add(banner6);
         cases.add(banner7);
         cases.add(banner8);
+        cases.add(rd200);
+        cases.add(rd1200);
+        cases.add(rd2200);
+        cases.add(rd3200);
+        cases.add(rd4200);
+        cases.add(rd5200);
+        cases.add(rd7200);
+        cases.add(rd8200);
 
 
 

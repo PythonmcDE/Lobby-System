@@ -81,7 +81,7 @@ public class LobbySystem extends JavaPlugin {
             public void run() {
                 p.clear();
             }
-        }.runTaskTimerAsynchronously(this, 20*10,20*10);
+        }.runTaskTimerAsynchronously(this, 20*6,20*6);
     }
 
     public void startMySQL(){
