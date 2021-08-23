@@ -1,7 +1,5 @@
 package me.bluenitrox.lobby;
 
-import de.Herbystar.TTA.TTA_Methods;
-import me.bluenitrox.lobby.manager.LocationManager;
 import me.bluenitrox.lobby.mysql.MySQL;
 import me.bluenitrox.lobby.mysql.MySQL_File;
 import me.bluenitrox.lobby.utils.Multiplikator;
@@ -94,7 +92,7 @@ public class LobbySystem extends JavaPlugin {
 
             @Override
             public void run() {
-                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "kill @e");
+                //Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "kill @e");
             }
         }.runTaskLaterAsynchronously(this, 20*10);
     }

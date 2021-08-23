@@ -2,7 +2,7 @@ package me.bluenitrox.lobby.manager;
 
 public class MessageManager {
 
-    public static String PREFIX = "§c§lDemonMC §8» ";
+    public static String PREFIX = "§a§lPythonMC §8» ";
     public static String ERROR = PREFIX + "§7Es ist ein §cFehler §7aufgetreten! Bitte Versuche es erneut";
     public static String NOPLAYER = PREFIX + "§7Dazu musst du ein §cSpieler §7sein";
     public static String SETOWNHEALTH = PREFIX + "§7Du hast dich §ageheilt§7.";

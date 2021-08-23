@@ -21,6 +21,27 @@ import java.util.List;
 
 public class InventoryClickEvent implements Listener {
 
+    /*
+    TODO CLOUDNET DRIVER!!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     */
+
     private final IPlayerManager playerManager = CloudNetDriver.getInstance().getServicesRegistry().getFirstService(IPlayerManager.class);
 
     @EventHandler

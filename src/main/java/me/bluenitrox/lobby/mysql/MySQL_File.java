@@ -14,9 +14,9 @@ public class MySQL_File {
         cfg.options().copyDefaults(true);
         cfg.addDefault("host", "localhost");
         cfg.addDefault("port", "3306");
-        cfg.addDefault("database", "Lobbysystem");
-        cfg.addDefault("username", "vulcanmc");
-        cfg.addDefault("password", "newrandy2020");
+        cfg.addDefault("database", "database");
+        cfg.addDefault("username", "username");
+        cfg.addDefault("password", "password");
 
 
         try {
