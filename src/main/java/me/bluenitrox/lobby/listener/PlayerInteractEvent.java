@@ -43,7 +43,6 @@ public class PlayerInteractEvent implements Listener {
                                 return;
                             }
                             LobbySystem.p.add(p);
-                            p.chat("/friendgui");
                         }else if(e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §6Cosmetics")){
                             e.setCancelled(true);
                             if(LobbySystem.p.contains(p)){

@@ -1,5 +1,7 @@
 package me.bluenitrox.lobby;
 
+import me.bluenitrox.lobby.coins.Databaseconnector;
+import me.bluenitrox.lobby.manager.ScoreboardStarter;
 import me.bluenitrox.lobby.mysql.MySQL;
 import me.bluenitrox.lobby.mysql.MySQL_File;
 import me.bluenitrox.lobby.utils.Multiplikator;
@@ -31,6 +33,8 @@ public class LobbySystem extends JavaPlugin {
         startMySQL();
         register(Bukkit.getPluginManager());
         runnable();
+
+        new ScoreboardStarter().startScoreboard();
     }
 
     @Override
@@ -146,11 +150,13 @@ public class LobbySystem extends JavaPlugin {
         }
 
         try{
-            PreparedStatement ps = MySQL.getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS `DailyReward` ( `UUID` CHAR(36) NOT NULL , `Belohnung` INT(11) NOT NULL");
+            PreparedStatement ps = MySQL.getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS `DailyReward` ( `UUID` VARCHAR(36) NOT NULL , `Belohnung` INT(11) NOT NULL ,PRIMARY KEY (`UUID`))");
             ps.executeUpdate();
         }catch (SQLException e){
             e.printStackTrace();
         }
+
+        new Databaseconnector().createTable();
 
 
     }

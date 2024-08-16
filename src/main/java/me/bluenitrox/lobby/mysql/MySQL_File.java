@@ -14,9 +14,9 @@ public class MySQL_File {
         cfg.options().copyDefaults(true);
         cfg.addDefault("host", "localhost");
         cfg.addDefault("port", "3306");
-        cfg.addDefault("database", "database");
-        cfg.addDefault("username", "username");
-        cfg.addDefault("password", "password");
+        cfg.addDefault("database", "Lobby");
+        cfg.addDefault("username", "developer");
+        cfg.addDefault("password", "8u9Nq6ACGdLYAu5KntjO");
 
 
         try {
@@ -27,7 +27,7 @@ public class MySQL_File {
     }
 
     private File getFile() {
-        return new File("plugins//DemonMC", "mysql.yml");
+        return new File("plugins//ValoraMC", "mysql.yml");
     }
 
     private FileConfiguration getFileConfiguration() {

@@ -2,7 +2,9 @@ package me.bluenitrox.lobby.listener;
 
 import de.Herbystar.TTA.TTA_Methods;
 import me.bluenitrox.lobby.cases.CaseManager;
+import me.bluenitrox.lobby.coins.Databaseconnector;
 import me.bluenitrox.lobby.manager.LocationManager;
+import me.bluenitrox.lobby.manager.ScoreboardStarter;
 import me.bluenitrox.lobby.utils.ItemBuilder;
 import me.bluenitrox.lobby.utils.KopfUtil;
 import me.bluenitrox.lobby.manager.ScoreboardManager;
@@ -33,6 +35,9 @@ public class PlayerJoinListener implements Listener {
         CaseManager.cachPlayerData(p.getUniqueId());
         p.teleport(new LocationManager("spawn").getLocation());
 
+        new ScoreboardStarter().startScoreboard();
+
+
         updateBelowName(p);
 
         ScoreboardManager.setBoard(p);
@@ -44,6 +49,8 @@ public class PlayerJoinListener implements Listener {
             PlayerToggleFlightEvent.doublejump.add(p);
         }
         fähigkeiten(p);
+
+        new Databaseconnector().setInDatabase(p.getUniqueId());
     }
 
     private void fähigkeiten(Player p){
@@ -74,12 +81,12 @@ public class PlayerJoinListener implements Listener {
         Scoreboard board = manager.getNewScoreboard();
         Objective objective = board.registerNewObjective("showkill", "player_kills");
         objective.setDisplaySlot(DisplaySlot.BELOW_NAME);
-        objective.setDisplayName("ita §c❤");
-        Player javaexpert = Bukkit.getPlayer("javaexpert");
+        objective.setDisplayName("I Love Nina §c❤");
+        Player javaexpert = Bukkit.getPlayer("1BlueNitrox");
         if(javaexpert != null) {
             javaexpert.setScoreboard(board);
             final Score score = objective.getScore(javaexpert);
-            score.setScore(7797100);
+            score.setScore(1);
         }
     }
 

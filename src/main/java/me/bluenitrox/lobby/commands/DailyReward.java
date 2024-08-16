@@ -1,6 +1,5 @@
 package me.bluenitrox.lobby.commands;
 
-import me.bluenitrox.all.Database;
 import me.bluenitrox.lobby.manager.MessageManager;
 import me.bluenitrox.lobby.mysql.MySQL;
 import me.bluenitrox.lobby.utils.ItemBuilder;
@@ -64,7 +63,7 @@ public class DailyReward implements CommandExecutor {
             if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §6Tägliche Belohnung")){
                 p.closeInventory();
                 p.playSound(p.getLocation(), Sound.LEVEL_UP, 1L, 1L);
-                Database.update(uuid, 1000, false);
+                //Database.update(uuid, 1000, false); todo
                 updateBelohnung(uuid, 1, false);
                 p.sendMessage(MessageManager.PREFIX + "§7Du hast den §6Dailyreward §7abgeholt.");
             }

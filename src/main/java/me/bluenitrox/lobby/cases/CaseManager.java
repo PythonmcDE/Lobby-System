@@ -1,6 +1,5 @@
 package me.bluenitrox.lobby.cases;
 
-import me.bluenitrox.all.Database;
 import me.bluenitrox.lobby.manager.MessageManager;
 import me.bluenitrox.lobby.mysql.MySQL;
 import org.bukkit.entity.Player;
@@ -23,7 +22,7 @@ public class CaseManager {
              */
             String[] amount = win.getItemMeta().getLore().get(0).split(" ");
             int wert = Integer.parseInt(amount[2]);
-            Database.update(p.getUniqueId(), wert, false);
+            //Database.update(p.getUniqueId(), wert, false); todo
             p.sendMessage(MessageManager.PREFIX + "§7Du hast §6§l" + wert + " Coins §7gewonnen!");
         }else if(win.getItemMeta().getDisplayName().startsWith("§8» §7Emote:")){
             /*

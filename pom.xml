@@ -8,6 +8,7 @@
     <artifactId>lobbysystem</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+
     <repositories>
 
         <!-- This adds the Spigot Maven repository to the build -->
@@ -27,38 +28,7 @@
     </repositories>
 
     <dependencies>
-        <!-- Spigot API-->
-        <dependency>
-            <groupId>org.spigotmc</groupId>
-            <artifactId>spigot-api</artifactId>
-            <version>1.8.8-R0.1-SNAPSHOT</version>
-            <type>jar</type>
-            <scope>provided</scope>
-        </dependency>
 
-        <!-- Bukkit API-->
-        <dependency>
-            <groupId>org.bukkit</groupId>
-            <artifactId>bukkit</artifactId>
-            <version>1.8.8-R0.1-SNAPSHOT</version>
-            <type>jar</type>
-            <scope>provided</scope>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/com.github.azbh111/craftbukkit-1.8.8 -->
-        <dependency>
-            <groupId>com.github.azbh111</groupId>
-            <artifactId>craftbukkit-1.8.8</artifactId>
-            <version>R</version>
-        </dependency>
-
-        <!-- Actionbar,Titel API..-->
-        <dependency>
-            <groupId>de.Herbystar</groupId>
-            <artifactId>TTA</artifactId>
-            <version>3.6</version>
-            <scope>provided</scope>
-        </dependency>
 
         <!--  cloudnet driver for plugins and modules -->
         <dependency>

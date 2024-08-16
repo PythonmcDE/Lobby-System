@@ -1,6 +1,6 @@
 package me.bluenitrox.lobby.utils;
 
-import net.md_5.bungee.api.ChatColor;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
@@ -60,11 +60,6 @@ public class ItemBuilder {
         this.itemMeta.addItemFlags(flag);
         return this;
 
-    }
-
-    public ItemBuilder setUnbreakable(boolean b){
-        this.itemMeta.spigot().setUnbreakable(b);
-        return this;
     }
 
     public ItemBuilder setLore(String... lore) {

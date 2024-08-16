@@ -2,9 +2,9 @@ package me.bluenitrox.lobby.cases;
 
 import de.dytanic.cloudnet.driver.CloudNetDriver;
 import de.dytanic.cloudnet.driver.permission.IPermissionUser;
-import me.bluenitrox.all.Database;
 import me.bluenitrox.lobby.manager.MessageManager;
 import me.bluenitrox.lobby.utils.ItemBuilder;
+import me.pythonmc.coins.api.CoinsAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -24,7 +24,7 @@ public class CoinShop {
             Player p = (Player)e.getWhoClicked();
             e.setCancelled(true);
             if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§6§lLobby Case")){
-                if(Database.getCoins(uuid) > 10000){
+                /*if(Database.getCoins(uuid) > 10000){
                     CaseManager.update(uuid, 1, false, "cases");
                     p.sendMessage(MessageManager.PREFIX + "§7Du hast gerade eine §6§lLobby-Case §7gekauft!");
                     p.playSound(p.getLocation(), Sound.LEVEL_UP, 1L, 1L);
@@ -51,12 +51,12 @@ public class CoinShop {
                     assert permissionUser != null;
                     permissionUser.addGroup("Prime", 7, TimeUnit.DAYS);
                     p.playSound(p.getLocation(), Sound.LEVEL_UP, 1L, 1L);
-                    Database.update(uuid, 40000, true);
+                    new CoinsAPI().removeCoins(uuid, 40000,);
                 }else {
                     p.playSound(p.getLocation(), Sound.VILLAGER_NO, 1L, 1L);
                     p.closeInventory();
                     p.sendMessage(MessageManager.PREFIX + "§7Dazu hast du §cnicht §7genug Geld!");
-                }
+                }*/
             }
         }
     }
