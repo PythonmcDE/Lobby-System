@@ -38,10 +38,11 @@ public class PlayerJoinListener implements Listener {
         new ScoreboardStarter().startScoreboard();
 
 
-        updateBelowName(p);
+
+        p.setLevel(2024);
 
         ScoreboardManager.setBoard(p);
-        TTA_Methods.sendActionBar(p, "§8» §bDu kannst gut Supporten? §4§l-> §cBewirb dich jetzt als Supporter!", 20*60*24);
+        TTA_Methods.sendActionBar(p, "§8» §7Joine gerne unserem Discord: §5discord.gg/valoramc", 20*60*24);
         p.getInventory().clear();
         p.setGameMode(GameMode.SURVIVAL);
         givePlayerItems(p);
@@ -65,7 +66,7 @@ public class PlayerJoinListener implements Listener {
     private void givePlayerItems(Player p){
         ItemStack kopf = KopfUtil.createSkull(p.getName(), "§8» §6Freunde");
         ItemMeta kopfmeta = kopf.getItemMeta();
-        kopfmeta.setLore(Arrays.asList("§8● §aKlicke hier§7, um dein Freunde-Menü zu §aöffnen§7!"));
+        kopfmeta.setLore(Arrays.asList("§8● §aFreunde Menü Coming Soon§7!"));
         kopf.setItemMeta(kopfmeta);
 
         p.getInventory().setItem(3, new ItemBuilder(Material.BARRIER).setDisplayname("§8» §4Nichts ausgewählt").setLore("§8● §7Öffne das Cosmetics-Menü und wähle ein Gadget aus.").build());
@@ -74,20 +75,6 @@ public class PlayerJoinListener implements Listener {
         p.getInventory().setItem(4, new ItemBuilder(Material.WATCH).setDisplayname("§8» §6Lobby Menü").setLore("§8● §aKlicke hier§7, um das Lobby-Menü zu §aöffnen§7!").build());
         p.getInventory().setItem(1, new ItemBuilder(Material.BLAZE_ROD).setDisplayname("§8» §6Spieler-Sichtbarkeit").setLore("§8● §aKlicke hier§7, um das Sichtbarkeits-Menü zu §aöffnen§7!").build());
         p.getInventory().setItem(7, new ItemBuilder(Material.BANNER,(short) 8).setDisplayname("§8» §6Cosmetics").setLore("§8● §aKlicke hier§7, um dein Cosmetics-Menü zu §aöffnen§7!").build());
-    }
-
-    public static void updateBelowName(Player p){
-        org.bukkit.scoreboard.ScoreboardManager manager = (org.bukkit.scoreboard.ScoreboardManager) Bukkit.getScoreboardManager();
-        Scoreboard board = manager.getNewScoreboard();
-        Objective objective = board.registerNewObjective("showkill", "player_kills");
-        objective.setDisplaySlot(DisplaySlot.BELOW_NAME);
-        objective.setDisplayName("I Love Nina §c❤");
-        Player javaexpert = Bukkit.getPlayer("1BlueNitrox");
-        if(javaexpert != null) {
-            javaexpert.setScoreboard(board);
-            final Score score = objective.getScore(javaexpert);
-            score.setScore(1);
-        }
     }
 
 }

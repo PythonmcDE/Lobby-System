@@ -13,6 +13,7 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -22,7 +23,6 @@ public class LobbySystem extends JavaPlugin {
 
 
 
-    public static ArrayList<Player> p = new ArrayList<>();
     public static ArrayList<Player> tnt = new ArrayList<>();
 
     public static LobbySystem instance;
@@ -83,12 +83,6 @@ public class LobbySystem extends JavaPlugin {
         new BukkitRunnable(){
             @Override
             public void run() {
-                p.clear();
-            }
-        }.runTaskTimerAsynchronously(this, 20*6,20*6);
-        new BukkitRunnable(){
-            @Override
-            public void run() {
                 tnt.clear();
             }
         }.runTaskTimerAsynchronously(this, 20*20,20*20);
@@ -144,6 +138,7 @@ public class LobbySystem extends JavaPlugin {
 
         try {
             PreparedStatement ps = MySQL.getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS `kopf` ( `UUID` VARCHAR(36) NOT NULL , `gomme` INT(11) NOT NULL , `benx` INT(11) NOT NULL, `palle` INT(11) NOT NULL, `glp` INT(11) NOT NULL, `abge` INT(11) NOT NULL, `logo` INT(11) NOT NULL,PRIMARY KEY (`UUID`))");
+
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -156,7 +151,12 @@ public class LobbySystem extends JavaPlugin {
             e.printStackTrace();
         }
 
-        new Databaseconnector().createTable();
+        try{
+            PreparedStatement ps = MySQL.getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS `coinmanager` (`uuid` VARCHAR(255) NOT NULL, `coins` INT)");
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
 
     }

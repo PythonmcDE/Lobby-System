@@ -1,7 +1,12 @@
 package me.bluenitrox.lobby.coins;
 
 
+import me.bluenitrox.lobby.manager.ScoreboardManager;
 import me.bluenitrox.lobby.mysql.MySQL;
+import org.bukkit.Bukkit;
+import org.bukkit.scoreboard.Score;
+import org.bukkit.scoreboard.Scoreboard;
+import org.jline.reader.Buffer;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,24 +21,16 @@ public class Databaseconnector {
             return;
         }
         int newCoins = getCoins(uuid) + addCoins;
-        try (Connection connection = MySQL.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement("UPDATE coinmanager SET coins = ? WHERE uuid = ?");){
+        try {
+            PreparedStatement preparedStatement = MySQL.getConnection().prepareStatement("UPDATE coinmanager SET coins = ? WHERE uuid = ?");
             preparedStatement.setInt(1, newCoins);
             preparedStatement.setString(2, uuid.toString());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
 
-    public void createTable() {
-        try (Connection connection = MySQL.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement("CREATE TABLE IF NOT EXISTS `coinmanager` (`uuid` VARCHAR(255) NOT NULL, `coins` INT)");){
-            preparedStatement.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println("error");
-            e.printStackTrace();
-        }
+        ScoreboardManager.setBoard(Bukkit.getPlayer(uuid));
     }
 
     public void setCoinsToDatabase(UUID uuid, int coins) {
@@ -41,14 +38,16 @@ public class Databaseconnector {
             return;
         }
         int newCoins = coins;
-        try (Connection connection = MySQL.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement("UPDATE coinmanager SET coins = ? WHERE uuid = ?");){
+        try {
+            PreparedStatement preparedStatement = MySQL.getConnection().prepareStatement("UPDATE coinmanager SET coins = ? WHERE uuid = ?");
             preparedStatement.setInt(1, newCoins);
             preparedStatement.setString(2, uuid.toString());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        ScoreboardManager.setBoard(Bukkit.getPlayer(uuid));
+
     }
 
     public void removeCoinsToDatabase(UUID uuid, int removeCoins) {
@@ -56,23 +55,25 @@ public class Databaseconnector {
             return;
         }
         int newCoins = getCoins(uuid) - removeCoins;
-        try (Connection connection = MySQL.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement("UPDATE coinmanager SET coins = ? WHERE uuid = ?");){
+        try {
+            PreparedStatement preparedStatement = MySQL.getConnection().prepareStatement("UPDATE coinmanager SET coins = ? WHERE uuid = ?");
             preparedStatement.setInt(1, newCoins);
             preparedStatement.setString(2, uuid.toString());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        ScoreboardManager.setBoard(Bukkit.getPlayer(uuid));
+
     }
 
     public int getCoins(UUID uuid) {
         if (!isUserExists(uuid)) {
-            return 1396354654;
+            return 0;
         }
         int i = 0;
-        try (Connection connection = MySQL.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement("SELECT coins from coinmanager WHERE uuid = ?");){
+        try {
+            PreparedStatement preparedStatement = MySQL.getConnection().prepareStatement("SELECT coins from coinmanager WHERE uuid = ?");
             preparedStatement.setString(1, uuid.toString());
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
@@ -88,14 +89,16 @@ public class Databaseconnector {
         if (this.isUserExists(uuid)) {
             return;
         }
-        try (Connection connection = MySQL.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO coinmanager (uuid,coins) VALUES (?,?)");){
+        try {
+            PreparedStatement preparedStatement = MySQL.getConnection().prepareStatement("INSERT INTO coinmanager (uuid,coins) VALUES (?,?)");
             preparedStatement.setString(1, uuid.toString());
             preparedStatement.setInt(2, 0);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        ScoreboardManager.setBoard(Bukkit.getPlayer(uuid));
+
     }
 
     /*
@@ -104,8 +107,8 @@ public class Databaseconnector {
      * Enabled aggressive exception aggregation
      */
     private boolean isUserExists(UUID uuid) {
-        try (Connection connection = MySQL.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement("SELECT uuid from coinmanager WHERE uuid = ?");){
+        try {
+            PreparedStatement preparedStatement = MySQL.getConnection().prepareStatement("SELECT uuid from coinmanager WHERE uuid = ?");
             preparedStatement.setString(1, uuid.toString());
             try (ResultSet resultSet = preparedStatement.executeQuery();){
                 if (!resultSet.next()) return false;

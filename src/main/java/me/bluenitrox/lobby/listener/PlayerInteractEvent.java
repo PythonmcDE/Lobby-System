@@ -37,23 +37,11 @@ public class PlayerInteractEvent implements Listener {
                             navigarInv(p);
                         }else if(e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §6Freunde")){
                             e.setCancelled(true);
-                            if(LobbySystem.p.contains(p)){
-                                p.sendMessage(MessageManager.PREFIX + "§7Warte einen Augenblick bis du das wieder benutzen kannst");
-                                p.playSound(p.getLocation(), Sound.VILLAGER_NO, 1L, 1L);
-                                return;
-                            }
-                            LobbySystem.p.add(p);
                         }else if(e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §6Cosmetics")){
                             e.setCancelled(true);
-                            if(LobbySystem.p.contains(p)){
-                                p.sendMessage(MessageManager.PREFIX + "§7Warte einen Augenblick bis du das wieder benutzen kannst");
-                                p.playSound(p.getLocation(), Sound.VILLAGER_NO, 1L, 1L);
-                                return;
-                            }
                             p.playSound(p.getLocation(), Sound.CHICKEN_EGG_POP, 1L, 1L);
                             p.playSound(p.getLocation(), Sound.LEVEL_UP, 2L ,2L);
                             p.openInventory(CosmeticManager.getMainmenu(p.getUniqueId()));
-                            LobbySystem.p.add(p);
                         }else if(e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §6Lobby Menü")){
                             e.setCancelled(true);
                             playerLobby(p);
@@ -149,7 +137,7 @@ public class PlayerInteractEvent implements Listener {
         ItemStack glas = new ItemBuilder(Material.STAINED_GLASS_PANE).setDisplayname(" ").build();
         ItemStack school = new ItemBuilder(Material.BOOK_AND_QUILL).setDisplayname("§8» §6School").setLore("§8● §aKlicke hier, um dich zu teleportieren...").build();
         ItemStack spawn = new ItemBuilder(Material.NETHER_STAR).setDisplayname("§8» §6Lobby-Spawn").setLore("§8● §aKlicke hier, um dich zu teleportieren...").build();
-        ItemStack minigames = new ItemBuilder(Material.ARMOR_STAND).setDisplayname("§8» §6Minigames §8(§7Demnächst verfügbar...§8)").setLore("§8● §cKlicke hier, um dich zu teleportieren...").build();
+        ItemStack minigames = new ItemBuilder(Material.ARMOR_STAND).setDisplayname("§8» §6Dailyreward").setLore("§8● §cKlicke hier, um dich zu teleportieren...").build();
         ItemStack coinshop = new ItemBuilder(Material.EMERALD).setDisplayname("§8» §6Coinshop").setLore("§8● §aKlicke hier, um dich zu teleportieren...").build();
         ItemStack caseopening = new ItemBuilder(Material.DRAGON_EGG).setDisplayname("§8» §6Case-Opening").setLore("§8● §aKlicke hier, um dich zu teleportieren...").build();
 

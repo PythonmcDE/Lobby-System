@@ -27,17 +27,17 @@ public class ScoreboardManager {
         String onlinetime1 = "§7➝§6 %dkbans_player_online-time-h%h";
         //String onlinetime = PlaceholderAPI.setPlaceholders(p, onlinetime1);
         ScoreboardScore a1 = new ScoreboardScore(scoreboard, obj, " ");
-        ScoreboardScore a2 = new ScoreboardScore(scoreboard, obj, "§2❤ §7Rang");
+        ScoreboardScore a2 = new ScoreboardScore(scoreboard, obj, "§5❤ §7Rang");
         ScoreboardScore a11 = new ScoreboardScore(scoreboard, obj, "§7➝ " + new TablistManager(luckPerms).getPlayerGroup(p));
         ScoreboardScore a4 = new ScoreboardScore(scoreboard, obj, "  ");
-        ScoreboardScore a5 = new ScoreboardScore(scoreboard, obj, "§2✪ §7Coins");
+        ScoreboardScore a5 = new ScoreboardScore(scoreboard, obj, "§5✪ §7Coins");
         ScoreboardScore a12 = new ScoreboardScore(scoreboard, obj, "§7➝  §a" + new Databaseconnector().getCoins(p.getUniqueId()));
         ScoreboardScore a6 = new ScoreboardScore(scoreboard, obj, "           ");
         /*ScoreboardScore a30 = new ScoreboardScore(scoreboard, obj, "§2⚔ §7Clan");
         ScoreboardScore a40 = new ScoreboardScore(scoreboard, obj, "§7➝§a " + ClanAPI.getClanName(p.getUniqueId()));
         ScoreboardScore a41 = new ScoreboardScore(scoreboard, obj, "    ");*/
         ScoreboardScore a7 = new ScoreboardScore(scoreboard, obj, "§7§m-------------");
-        ScoreboardScore a8 = new ScoreboardScore(scoreboard, obj, "§8» §a§lPythonMC.DE");
+        ScoreboardScore a8 = new ScoreboardScore(scoreboard, obj, "§8» §5§lValoraMC.NET");
         a1.setScore(12);
         a2.setScore(11);
         a11.setScore(10);

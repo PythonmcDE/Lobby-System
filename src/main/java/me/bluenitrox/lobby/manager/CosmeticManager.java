@@ -34,12 +34,6 @@ public class CosmeticManager {
                 p.playSound(p.getLocation(), Sound.CHICKEN_EGG_POP, 1L, 1L);
                 return;
             }
-            if(LobbySystem.p.contains(p)){
-                p.sendMessage(MessageManager.PREFIX + "§7Warte einen Augenblick bis du das wieder benutzen kannst");
-                p.playSound(p.getLocation(), Sound.VILLAGER_NO, 1L, 1L);
-                return;
-            }
-            LobbySystem.p.add(p);
             if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§8» §6Banner")){
                 p.openInventory(getBanner(p.getUniqueId()));
                 p.playSound(p.getLocation(), Sound.CHICKEN_EGG_POP, 1L, 1L);

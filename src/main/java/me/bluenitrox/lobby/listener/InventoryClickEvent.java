@@ -10,8 +10,11 @@ import me.bluenitrox.lobby.commands.Build;
 import me.bluenitrox.lobby.commands.DailyReward;
 import me.bluenitrox.lobby.manager.CosmeticManager;
 import me.bluenitrox.lobby.manager.LocationManager;
+import me.bluenitrox.lobby.manager.PermissionsManager;
+import me.bluenitrox.lobby.manager.ServerSender;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.Server;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -58,17 +61,23 @@ public class InventoryClickEvent implements Listener {
                 inventoryClickCase(p);
             }
         }else if(e.getClickedInventory().getName().equalsIgnoreCase("§8» §6Lobby wechseln") && e.getCurrentItem() != null){
-            List<? extends ICloudPlayer> cloudPlayers = this.playerManager.getOnlinePlayers(p.getName());
-            ICloudPlayer entry = cloudPlayers.get(0);
             String[] Lobby = e.getCurrentItem().getItemMeta().getDisplayName().split(" ");
-            this.playerManager.getPlayerExecutor(entry).connect(Lobby[1]);
+            if(Lobby[1].startsWith("Lobby-1")){
+                new ServerSender().sendPlayerToServer(p, "Lobby-1");
+            }else if(Lobby[1].startsWith("Lobby-2")){
+                new ServerSender().sendPlayerToServer(p, "Lobby-2");
+            }if(Lobby[1].startsWith("Premiumlobby-1")){
+                if(p.hasPermission(PermissionsManager.PREMIUMLOBBY)) {
+                    new ServerSender().sendPlayerToServer(p, "Premiumlobby-1");
+                }
+            }
         }else if(e.getClickedInventory().getName().equalsIgnoreCase("§8» §6Navigator") && e.getCurrentItem() != null){
             if(e.getCurrentItem().getType() == Material.DRAGON_EGG){
                 p.teleport(new LocationManager("caseopening").getLocation());
             }else if(e.getCurrentItem().getType() == Material.NETHER_STAR){
                 p.teleport(new LocationManager("spawn").getLocation());
             }else if(e.getCurrentItem().getType() == Material.ARMOR_STAND){
-                p.playSound(p.getLocation(), Sound.VILLAGER_NO, 1L, 1L);
+                p.teleport(new LocationManager("dailyreward").getLocation());
             }else if(e.getCurrentItem().getType() == Material.BOOK_AND_QUILL){
                 p.teleport(new LocationManager("school").getLocation());
             }else if(e.getCurrentItem().getType() == Material.EMERALD){
